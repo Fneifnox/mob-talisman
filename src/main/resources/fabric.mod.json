@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "mob-talisman",
+	"version": "${version}",
+	"name": "Mob Talisman",
+	"description": "This mod adds powerful talisman that can give you the powers from several mobs.",
+	"authors": [
+		"Fneifnox"
+	],
+	"contact": {
+		"homepage": "https://discord.gg/bszSDCq5ms",
+		"sources": "https://modrinth.com/mod/mob-talisman"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/mob-talisman/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.fneifnox.mobtalisman.MobTalisman"
+		],
+		"fabric-datagen": [
+			"net.fneifnox.mobtalisman.MobTalismanDataGenerator"
+		]
+	},
+	"mixins": [
+		"mob-talisman.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
