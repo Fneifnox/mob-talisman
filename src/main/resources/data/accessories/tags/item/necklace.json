@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "mob-talisman:horse_talisman",
+    "mob-talisman:bat_talisman",
+    "mob-talisman:iron_golem_talisman"
+  ]
+}
