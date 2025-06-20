@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "mob-talisman:spider_talisman",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancements.mob-talisman.i_think_a_spider_bit_me.title"
+    },
+    "description": {
+      "translate": "advancements.mob-talisman.i_think_a_spider_bit_me.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "mob-talisman:custom/root",
+  "criteria": {
+    "climbing": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,13 +1,17 @@
 package net.fneifnox.mobtalisman.mixin;
 
 import net.fneifnox.mobtalisman.item.custom.SpiderTalisman;
+import net.minecraft.advancement.AdvancementEntry;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import org.ladysnake.cca.api.v3.entity.EntityComponentInitializer;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.Objects;
 
 import static net.fneifnox.mobtalisman.MobTalisman.CONFIG;
 
@@ -25,6 +29,11 @@ public class PlayerClimbingMixin {
         if (!CONFIG.jumpForWallClimbing()) {
             if (self.horizontalCollision) {
                 cir.setReturnValue(true);
+                if (player instanceof ServerPlayerEntity serverPlayer) {
+                    Identifier id = Identifier.of("mob-talisman", "custom/i_think_spider_bit_me");
+                    AdvancementEntry entry = Objects.requireNonNull(serverPlayer.getServer()).getAdvancementLoader().get(id);
+                    serverPlayer.getAdvancementTracker().grantCriterion(entry, "climbing");
+                }
             }
         }
 

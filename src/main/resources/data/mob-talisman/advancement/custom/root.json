@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "mob-talisman:zombie_talisman",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancements.mob-talisman.root.title"
+    },
+    "description": {
+      "translate": "advancements.mob-talisman.root.description"
+    },
+    "background": "minecraft:textures/block/diamond_block",
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}
