@@ -1,0 +1,73 @@
+{
+  "parent": "mob-talisman:custom/root",
+  "display": {
+    "description": {
+      "translate": "advancements.mob-talisman.obtain_one_talisman.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "mob-talisman:chicken_talisman"
+    },
+    "title": {
+      "translate": "advancements.mob-talisman.obtain_one_talisman.title"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "mob-talisman:horse_talisman",
+              "mob-talisman:bat_talisman",
+              "mob-talisman:iron_golem_talisman",
+              "mob-talisman:chicken_talisman",
+              "mob-talisman:rabbit_talisman",
+              "mob-talisman:warden_talisman",
+              "mob-talisman:strider_talisman",
+              "mob-talisman:cat_talisman",
+              "mob-talisman:dolphin_talisman",
+              "mob-talisman:drowned_talisman",
+              "mob-talisman:glow_squid_talisman",
+              "mob-talisman:sheep_talisman",
+              "mob-talisman:breeze_talisman",
+              "mob-talisman:witch_talisman",
+              "mob-talisman:shulker_talisman",
+              "mob-talisman:tadpole_talisman",
+              "mob-talisman:turtle_talisman",
+              "mob-talisman:phantom_talisman",
+              "mob-talisman:cow_talisman",
+              "mob-talisman:parrot_talisman",
+              "mob-talisman:squid_talisman",
+              "mob-talisman:evoker_talisman",
+              "mob-talisman:guardian_talisman",
+              "mob-talisman:elder_guardian_talisman",
+              "mob-talisman:ravager_talisman",
+              "mob-talisman:goat_talisman",
+              "mob-talisman:wither_talisman",
+              "mob-talisman:allay_talisman",
+              "mob-talisman:silverfish_talisman",
+              "mob-talisman:pig_talisman",
+              "mob-talisman:villager_talisman",
+              "mob-talisman:piglin_talisman",
+              "mob-talisman:zombie_talisman",
+              "mob-talisman:skeleton_talisman",
+              "mob-talisman:blaze_talisman",
+              "mob-talisman:armadillo_talisman",
+              "mob-talisman:ender_dragon_talisman",
+              "mob-talisman:pufferfish_talisman",
+              "mob-talisman:spider_talisman",
+              "mob-talisman:axolotl_talisman",
+              "mob-talisman:enderman_talisman"
+            ],
+            "count": 1
+          }
+        ]
+      }
+    }
+  }
+}

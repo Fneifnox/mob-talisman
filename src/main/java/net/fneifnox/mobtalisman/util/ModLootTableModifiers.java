@@ -2,7 +2,6 @@ package net.fneifnox.mobtalisman.util;
 
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fneifnox.mobtalisman.item.ModItems;
-import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;

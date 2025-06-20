@@ -190,7 +190,20 @@
 
   "itemgroup.mob_talisman.mob_talisman_items": "Mob Talisman",
 
+  "advancements.mob-talisman.root.title": "Mob Talisman",
+  "advancements.mob-talisman.root.description": "Use Mob Talisman to collect powerful Talisman",
 
+  "advancements.mob-talisman.obtain_one_talisman.title": "Into Talisman",
+  "advancements.mob-talisman.obtain_one_talisman.description": "Obtain a talisman",
+
+  "advancements.mob-talisman.obtain_all_talisman.title": "Collector",
+  "advancements.mob-talisman.obtain_all_talisman.description": "Obtain every single talisman",
+
+  "advancements.mob-talisman.i_think_a_spider_bit_me.title": "I think a spider bit me",
+  "advancements.mob-talisman.i_think_a_spider_bit_me.description": "Sprint against a wall using the Spider Talisman",
+
+  "advancements.mob-talisman.definitely_skill_based.title": "Definitely skill-based",
+  "advancements.mob-talisman.definitely_skill_based.description": "Get a random item while using the Wither Talisman",
 
 
   "text.config.mob-talisman.title": "Mob Talisman",

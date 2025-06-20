@@ -3,12 +3,14 @@ package net.fneifnox.mobtalisman.item.custom;
 import io.wispforest.accessories.api.AccessoryItem;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.fneifnox.mobtalisman.component.ModDataComponentTypes;
+import net.minecraft.advancement.AdvancementEntry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 
 import java.util.*;
 
@@ -42,6 +44,11 @@ public class WitherTalisman extends AccessoryItem {
 
         Item randomItem = items.get(player.getRandom().nextInt(items.size()));
         player.giveItemStack(new ItemStack(randomItem));
+        if (player instanceof ServerPlayerEntity serverPlayer) {
+            Identifier id = Identifier.of("mob-talisman", "custom/definitely_skill_based");
+            AdvancementEntry entry = Objects.requireNonNull(serverPlayer.getServer()).getAdvancementLoader().get(id);
+            serverPlayer.getAdvancementTracker().grantCriterion(entry, "got_item");
+        }
     }
 
     @Override
