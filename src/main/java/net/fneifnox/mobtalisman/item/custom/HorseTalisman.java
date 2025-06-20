@@ -1,53 +1,63 @@
 package net.fneifnox.mobtalisman.item.custom;
 
-import io.wispforest.accessories.api.Accessory;
+import io.wispforest.accessories.api.AccessoryItem;
 import io.wispforest.accessories.api.slot.SlotReference;
-import net.minecraft.entity.attribute.ClampedEntityAttribute;
-import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
-public class HorseTalisman implements Accessory {
+import java.util.List;
 
-    public static final Identifier STEP_HEIGHT_ID = Identifier.of("mobtalisman", "step_height");
+import static net.fneifnox.mobtalisman.MobTalisman.CONFIG;
 
-    public static final EntityAttribute STEP_HEIGHT = new ClampedEntityAttribute(
-            "attribute.name.generic.step_height",
-            0.6D, 0.0D, 10.0D
-    ).setTracked(true);
+public class HorseTalisman extends AccessoryItem {
 
-    private static final Identifier STEP_HEIGHT_MODIFIER_ID = Identifier.of("mobtalisman", "step_height_boost");
+    public static final Identifier STEP_HEIGHT_ID = Identifier.of("mobtalisman", "step_height_bonus");
+
+    public HorseTalisman(Settings properties) {
+        super(properties);
+    }
 
     @Override
     public void onEquip(ItemStack stack, SlotReference reference) {
-        if (!(reference.entity() instanceof ServerPlayerEntity player)) return;
+        if (!reference.entity().getWorld().isClient()) {
 
-        RegistryEntry<EntityAttribute> attributeEntry = Registries.ATTRIBUTE.getEntry(STEP_HEIGHT);
-
-        var instance = player.getAttributeInstance(attributeEntry);
-        if (instance != null && !instance.hasModifier(STEP_HEIGHT_MODIFIER_ID)) {
-            instance.addPersistentModifier(new EntityAttributeModifier(
-                    STEP_HEIGHT_MODIFIER_ID,
-                    1.0,
-                    EntityAttributeModifier.Operation.ADD_VALUE
-            ));
+            var attribute = (reference.entity().getAttributeInstance(EntityAttributes.GENERIC_STEP_HEIGHT));
+            if (attribute != null && attribute.getModifier(STEP_HEIGHT_ID) == null) {
+                reference.entity().getAttributeInstance(EntityAttributes.GENERIC_STEP_HEIGHT)
+                        .addPersistentModifier(new EntityAttributeModifier(
+                                STEP_HEIGHT_ID, 0 + CONFIG.increasedStepHeightForHorseTalisman(), EntityAttributeModifier.Operation.ADD_VALUE
+                        ));
+            }
         }
     }
 
     @Override
     public void onUnequip(ItemStack stack, SlotReference reference) {
-        if (!(reference.entity() instanceof ServerPlayerEntity player)) return;
-
-        RegistryEntry<EntityAttribute> attributeEntry = Registries.ATTRIBUTE.getEntry(STEP_HEIGHT);
-
-        var instance = player.getAttributeInstance(attributeEntry);
-        if (instance != null) {
-            instance.removeModifier(STEP_HEIGHT_MODIFIER_ID);
+        if (!reference.entity().getWorld().isClient()) {
+            reference.entity().getAttributeInstance(EntityAttributes.GENERIC_STEP_HEIGHT)
+                    .removeModifier(STEP_HEIGHT_ID);
         }
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        float chance = CONFIG.increasedStepHeightForHorseTalisman();
+        if (chance == (int) chance) {
+            tooltip.add(Text.translatable("tooltip.mob-talisman.horse_talisman.prefix")
+                    .append(Text.literal("+" + (int) chance).formatted(Formatting.DARK_GREEN))
+                    .append(Text.translatable("tooltip.mob-talisman.horse_talisman.suffix")));
+        }
+        else {
+            tooltip.add(Text.translatable("tooltip.mob-talisman.horse_talisman.prefix")
+                    .append(Text.literal("+" + chance).formatted(Formatting.DARK_GREEN))
+                    .append(Text.translatable("tooltip.mob-talisman.horse_talisman.suffix")));
+        }
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }
 

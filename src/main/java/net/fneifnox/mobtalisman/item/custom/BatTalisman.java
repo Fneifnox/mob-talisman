@@ -5,7 +5,11 @@ import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
+
+import java.util.List;
 
 public class BatTalisman extends AccessoryItem {
 
@@ -15,11 +19,8 @@ public class BatTalisman extends AccessoryItem {
 
     @Override
     public void tick(ItemStack stack, SlotReference reference) {
-        System.out.println("BatTalisman geht 1");
         if (!(reference.entity() instanceof ServerPlayerEntity player)) return;
-        System.out.println("BatTalisman geht 2");
-
-        player.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 610, 0, true, false, true));
+        player.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, -1, 0, true, false, true));
     }
 
     @Override
@@ -27,5 +28,11 @@ public class BatTalisman extends AccessoryItem {
         if (!(reference.entity() instanceof ServerPlayerEntity player)) return;
 
         player.removeStatusEffect(StatusEffects.NIGHT_VISION);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.translatable("tooltip.mob-talisman.bat_talisman"));
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }
