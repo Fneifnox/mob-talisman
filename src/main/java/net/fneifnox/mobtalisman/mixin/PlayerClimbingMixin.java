@@ -20,22 +20,16 @@ public class PlayerClimbingMixin {
         LivingEntity self = (LivingEntity) (Object) this;
 
         if (!(self instanceof PlayerEntity player)) return;
-        System.out.println("Spider Talisman Mixin 2");
         if (!SpiderTalisman.useBoolean(player)) return;
-        System.out.println("Spider Talisman Mixin 3");
 
         if (!CONFIG.jumpForWallClimbing()) {
-            System.out.println("Spider Talisman Mixin 4");
             if (self.horizontalCollision) {
-                System.out.println("Spider Talisman Mixin 5");
                 cir.setReturnValue(true);
             }
         }
 
         else if (CONFIG.jumpForWallClimbing()) {
-            System.out.println("Spider Talisman Mixin 6");
             if (self.horizontalCollision && !self.isOnGround()) {
-                System.out.println("Spider Talisman Mixin 7");
                 cir.setReturnValue(true);
             }
         }

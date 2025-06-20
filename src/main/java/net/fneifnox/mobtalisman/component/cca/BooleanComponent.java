@@ -1,4 +1,4 @@
-package net.fneifnox.mobtalisman.component;
+package net.fneifnox.mobtalisman.component.cca;
 
 import org.ladysnake.cca.api.v3.component.Component;
 

@@ -2,8 +2,7 @@ package net.fneifnox.mobtalisman.item.custom;
 
 import io.wispforest.accessories.api.AccessoryItem;
 import io.wispforest.accessories.api.slot.SlotReference;
-import net.fneifnox.mobtalisman.component.BooleanComponent;
-import net.fneifnox.mobtalisman.component.Vec3dComponent;
+import net.fneifnox.mobtalisman.component.cca.Vec3dComponent;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
@@ -13,8 +12,7 @@ import net.minecraft.util.math.Vec3d;
 
 import java.util.List;
 
-import static net.fneifnox.mobtalisman.component.MyComponents.ENDERMAN_POSITION;
-import static net.fneifnox.mobtalisman.component.MyComponents.HAS_SPIDER_TALISMAN;
+import static net.fneifnox.mobtalisman.component.cca.MyComponents.ENDERMAN_POSITION;
 
 public class EndermanTalisman extends AccessoryItem {
 

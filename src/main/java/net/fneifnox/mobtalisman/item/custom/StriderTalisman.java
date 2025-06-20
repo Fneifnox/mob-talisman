@@ -2,18 +2,18 @@ package net.fneifnox.mobtalisman.item.custom;
 
 import io.wispforest.accessories.api.AccessoryItem;
 import io.wispforest.accessories.api.slot.SlotReference;
+import net.fneifnox.mobtalisman.component.cca.BooleanComponent;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 
-import java.util.*;
-
 import java.util.List;
 
-public class StriderTalisman extends AccessoryItem {
+import static net.fneifnox.mobtalisman.component.cca.MyComponents.HAS_STRIDER_TALISMAN;
 
-    private static final Map<UUID, Boolean> equippedPlayers = new HashMap<>();
+public class StriderTalisman extends AccessoryItem {
 
     public StriderTalisman(Settings properties) {
         super(properties);
@@ -22,21 +22,31 @@ public class StriderTalisman extends AccessoryItem {
     @Override
     public void onEquip(ItemStack stack, SlotReference reference) {
         if (!reference.entity().getWorld().isClient()) {
-            UUID playerId = reference.entity().getUuid();
-            equippedPlayers.put(playerId, true);
+            if (!(reference.entity() instanceof PlayerEntity player)) return;
+            setBooleanTrue(player);
         }
     }
 
     @Override
     public void onUnequip(ItemStack stack, SlotReference reference) {
         if (!reference.entity().getWorld().isClient()) {
-            UUID playerId = reference.entity().getUuid();
-            equippedPlayers.put(playerId, false);
+            if (!(reference.entity() instanceof PlayerEntity player)) return;
+            setBooleanFalse(player);
         }
     }
 
-    public static boolean playerHasStriderTalismanEquipped(PlayerEntity player) {
-        return equippedPlayers.getOrDefault(player.getUuid(), false);
+    public static boolean useBoolean(Entity provider) {
+        return HAS_STRIDER_TALISMAN.get(provider).getValue();
+    }
+
+    public static void setBooleanFalse(Entity provider) {
+        BooleanComponent component = HAS_STRIDER_TALISMAN.get(provider);
+        component.setValue(false);
+    }
+
+    public static void setBooleanTrue(Entity provider) {
+        BooleanComponent component = HAS_STRIDER_TALISMAN.get(provider);
+        component.setValue(true);
     }
 
     @Override

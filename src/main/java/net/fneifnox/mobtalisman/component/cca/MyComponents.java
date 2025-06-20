@@ -1,4 +1,4 @@
-package net.fneifnox.mobtalisman.component;
+package net.fneifnox.mobtalisman.component.cca;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
@@ -11,6 +11,9 @@ public final class MyComponents implements EntityComponentInitializer {
     public static final ComponentKey<BooleanComponent> HAS_SPIDER_TALISMAN =
             ComponentRegistry.getOrCreate(Identifier.of("mob-talisman", "has_spider_talisman"), BooleanComponent.class);
 
+    public static final ComponentKey<BooleanComponent> HAS_STRIDER_TALISMAN =
+            ComponentRegistry.getOrCreate(Identifier.of("mob-talisman", "has_strider_talisman"), BooleanComponent.class);
+
     public static final ComponentKey<Vec3dComponent> ENDERMAN_POSITION =
             ComponentRegistry.getOrCreate(Identifier.of("mob-talisman", "enderman_position"), Vec3dComponent.class);
 
@@ -18,5 +21,6 @@ public final class MyComponents implements EntityComponentInitializer {
     public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
         registry.registerFor(PlayerEntity.class, HAS_SPIDER_TALISMAN, player -> new SpiderBooleanComponent(player));
         registry.registerFor(PlayerEntity.class, ENDERMAN_POSITION, player -> new EndermanVec3dComponent(player));
+        registry.registerFor(PlayerEntity.class, HAS_STRIDER_TALISMAN, player -> new StriderBooleanComponent(player));
     }
 }

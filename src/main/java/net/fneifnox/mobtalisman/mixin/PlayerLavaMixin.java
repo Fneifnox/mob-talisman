@@ -1,6 +1,5 @@
 package net.fneifnox.mobtalisman.mixin;
 
-import net.fneifnox.mobtalisman.item.custom.SquidTalisman;
 import net.fneifnox.mobtalisman.item.custom.StriderTalisman;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -17,10 +16,10 @@ public abstract class PlayerLavaMixin {
     private void onCanStandOnFluid(net.minecraft.fluid.FluidState state, CallbackInfoReturnable<Boolean> cir) {
         LivingEntity self = (LivingEntity) (Object) this;
 
-        if (self instanceof PlayerEntity player &&
-                StriderTalisman.playerHasStriderTalismanEquipped(player) &&
-                state.getFluid() == Fluids.LAVA) {
-            cir.setReturnValue(true);
+        if (self instanceof PlayerEntity player) {
+            if (StriderTalisman.useBoolean(player) && state.getFluid() == Fluids.LAVA) {
+                cir.setReturnValue(true);
+            }
         }
     }
 }

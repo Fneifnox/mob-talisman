@@ -1,4 +1,4 @@
-package net.fneifnox.mobtalisman.component;
+package net.fneifnox.mobtalisman.component.cca;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NbtCompound;
@@ -8,11 +8,11 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import org.jetbrains.annotations.NotNull;
 import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
 
-public class SpiderBooleanComponent implements BooleanComponent, AutoSyncedComponent {
+public class StriderBooleanComponent implements BooleanComponent, AutoSyncedComponent {
     private boolean value = false;
     private final Entity provider;
 
-    public SpiderBooleanComponent(Entity provider) {
+    public StriderBooleanComponent(Entity provider) {
         this.provider = provider;
     }
 
@@ -24,7 +24,7 @@ public class SpiderBooleanComponent implements BooleanComponent, AutoSyncedCompo
     @Override
     public void setValue(boolean value) {
         this.value = value;
-        MyComponents.HAS_SPIDER_TALISMAN.sync(this.provider);
+        MyComponents.HAS_STRIDER_TALISMAN.sync(this.provider);
     }
 
     @Override
