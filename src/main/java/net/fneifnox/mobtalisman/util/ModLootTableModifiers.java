@@ -193,8 +193,8 @@ public class ModLootTableModifiers {
             if (ENDERMAN_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder((0f)))
-                    .with(ItemEntry.builder(Items.ENDER_PEARL))
+                        .conditionally(RandomChanceLootCondition.builder((CONFIG.dropchanceForEndermanTalisman() / 100)))
+                        .with(ItemEntry.builder(ModItems.ENDERMAN_TALISMAN))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
 
                 tableBuilder.pool(poolBuilder.build());

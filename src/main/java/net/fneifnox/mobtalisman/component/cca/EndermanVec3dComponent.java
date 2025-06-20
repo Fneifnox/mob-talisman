@@ -1,4 +1,4 @@
-package net.fneifnox.mobtalisman.component;
+package net.fneifnox.mobtalisman.component.cca;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NbtCompound;

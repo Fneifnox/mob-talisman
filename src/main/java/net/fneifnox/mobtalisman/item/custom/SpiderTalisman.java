@@ -2,7 +2,7 @@ package net.fneifnox.mobtalisman.item.custom;
 
 import io.wispforest.accessories.api.AccessoryItem;
 import io.wispforest.accessories.api.slot.SlotReference;
-import net.fneifnox.mobtalisman.component.BooleanComponent;
+import net.fneifnox.mobtalisman.component.cca.BooleanComponent;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -11,7 +11,7 @@ import net.minecraft.text.Text;
 
 import java.util.List;
 
-import static net.fneifnox.mobtalisman.component.MyComponents.HAS_SPIDER_TALISMAN;
+import static net.fneifnox.mobtalisman.component.cca.MyComponents.HAS_SPIDER_TALISMAN;
 
 
 public class SpiderTalisman extends AccessoryItem {

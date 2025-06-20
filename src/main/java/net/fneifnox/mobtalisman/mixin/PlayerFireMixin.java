@@ -16,8 +16,8 @@ public abstract class PlayerFireMixin {
     private boolean modifyIsFireImmune(boolean original) {
         if ((Object) this instanceof ServerPlayerEntity player) {
             FluidState state = player.getWorld().getFluidState(player.getBlockPos());
-            if (StriderTalisman.playerHasStriderTalismanEquipped(player) && state.getFluid() == Fluids.LAVA) {
-                return true; // Temporär feuerimmun
+            if (StriderTalisman.useBoolean(player) && state.getFluid() == Fluids.LAVA) {
+                return true;
             }
         }
         return original;

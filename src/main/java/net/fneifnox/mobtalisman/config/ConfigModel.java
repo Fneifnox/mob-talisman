@@ -2,11 +2,10 @@ package net.fneifnox.mobtalisman.config;
 
 
 import blue.endless.jankson.Comment;
-import io.wispforest.owo.config.annotation.Config;
-import io.wispforest.owo.config.annotation.Modmenu;
-import io.wispforest.owo.config.annotation.RestartRequired;
-import io.wispforest.owo.config.annotation.SectionHeader;
+import io.wispforest.owo.config.Option;
+import io.wispforest.owo.config.annotation.*;
 
+@Sync(Option.SyncMode.OVERRIDE_CLIENT)
 @Modmenu(modId = "mob-talisman")
 @Config(name = "mob-talisman", wrapperName = "MobT")
 public class ConfigModel {
@@ -50,6 +49,9 @@ public class ConfigModel {
     @RestartRequired
     @Comment("Ender Dragon Talisman - Default: 5%")
     public float dropchanceForEnderDragonTalisman = 5f;
+    @RestartRequired
+    @Comment("Enderman Talisman - Default: 0.5%")
+    public float dropchanceForEndermanTalisman = 0.5f;
     @RestartRequired
     @Comment("Evoker Talisman - Default: 0.5%")
     public float dropchanceForEvokerTalisman = 0.5f;

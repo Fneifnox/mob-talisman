@@ -1,17 +1,11 @@
 {
 	"schemaVersion": 1,
 	"id": "mob-talisman",
-
-	"entrypoints": {
-		"cardinal-components": [
-			"net.fneifnox.mobtalisman.component.MyComponents"
-		]
-	},
-
 	"custom": {
 		"cardinal-components": [
 			"mob-talisman:has_spider_talisman",
-			"mob-talisman:enderman_position"
+			"mob-talisman:enderman_position",
+			"mob-talisman:has_strider_talisman"
 		]
 	},
 
@@ -34,6 +28,9 @@
 		],
 		"fabric-datagen": [
 			"net.fneifnox.mobtalisman.MobTalismanDataGenerator"
+		],
+		"cardinal-components": [
+			"net.fneifnox.mobtalisman.component.cca.MyComponents"
 		]
 	},
 	"mixins": [
