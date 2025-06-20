@@ -1,6 +1,20 @@
 {
 	"schemaVersion": 1,
 	"id": "mob-talisman",
+
+	"entrypoints": {
+		"cardinal-components": [
+			"net.fneifnox.mobtalisman.component.MyComponents"
+		]
+	},
+
+	"custom": {
+		"cardinal-components": [
+			"mob-talisman:has_spider_talisman",
+			"mob-talisman:enderman_position"
+		]
+	},
+
 	"version": "${version}",
 	"name": "Mob Talisman",
 	"description": "This mod adds powerful talisman that can give you the powers from several mobs.",
@@ -27,7 +41,7 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.16.14",
-		"minecraft": "~1.21.1",
+		"minecraft": "*",
 		"java": ">=21",
 		"fabric-api": "*"
 	},

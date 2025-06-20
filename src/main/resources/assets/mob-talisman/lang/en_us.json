@@ -1,7 +1,272 @@
 {
-  "item.mob-talisman.horse_talisman": "Horse Talisman",
+  "item.mob-talisman.allay_talisman": "Allay Talisman",
+  "item.mob-talisman.armadillo_talisman": "Armadillo Talisman",
+  "item.mob-talisman.axolotl_talisman": "Axolotl Talisman",
   "item.mob-talisman.bat_talisman": "Bat Talisman",
+  "item.mob-talisman.blaze_talisman": "Blaze Talisman",
+  "item.mob-talisman.breeze_talisman": "Breeze Talisman",
+  "item.mob-talisman.cat_talisman": "Cat Talisman",
+  "item.mob-talisman.chicken_talisman": "Chicken Talisman",
+  "item.mob-talisman.cow_talisman": "Cow Talisman",
+  "item.mob-talisman.dolphin_talisman": "Dolphin Talisman",
+  "item.mob-talisman.drowned_talisman": "Drowned Talisman",
+  "item.mob-talisman.elder_guardian_talisman": "Elder Guardian Talisman",
+  "item.mob-talisman.ender_dragon_talisman": "Ender Dragon Talisman",
+  "item.mob-talisman.enderman_talisman": "Enderman Talisman",
+  "item.mob-talisman.evoker_talisman": "Evoker Talisman",
+  "item.mob-talisman.glow_squid_talisman": "Glow Squid Talisman",
+  "item.mob-talisman.goat_talisman": "Goat Talisman",
+  "item.mob-talisman.guardian_talisman": "Guardian Talisman",
+  "item.mob-talisman.horse_talisman": "Horse Talisman",
   "item.mob-talisman.iron_golem_talisman": "Iron Golem Talisman",
+  "item.mob-talisman.parrot_talisman": "Parrot Talisman",
+  "item.mob-talisman.phantom_talisman": "Phantom Talisman",
+  "item.mob-talisman.piglin_talisman": "Piglin Talisman",
+  "item.mob-talisman.pig_talisman": "Pig Talisman",
+  "item.mob-talisman.pufferfish_talisman": "Pufferfish Talisman",
+  "item.mob-talisman.rabbit_talisman": "Rabbit Talisman",
+  "item.mob-talisman.ravager_talisman": "Ravager Talisman",
+  "item.mob-talisman.sheep_talisman": "Sheep Talisman",
+  "item.mob-talisman.shulker_talisman": "Shulker Talisman",
+  "item.mob-talisman.silverfish_talisman": "Silverfish Talisman",
+  "item.mob-talisman.skeleton_talisman": "Skeleton Talisman",
+  "item.mob-talisman.spider_talisman": "Spider Talisman",
+  "item.mob-talisman.squid_talisman": "Squid Talisman",
+  "item.mob-talisman.strider_talisman": "Strider Talisman",
+  "item.mob-talisman.tadpole_talisman": "Tadpole Talisman",
+  "item.mob-talisman.turtle_talisman": "Turtle Talisman",
+  "item.mob-talisman.villager_talisman": "Villager Talisman",
+  "item.mob-talisman.warden_talisman": "Warden Talisman",
+  "item.mob-talisman.witch_talisman": "Witch Talisman",
+  "item.mob-talisman.wither_talisman": "Wither Talisman",
+  "item.mob-talisman.zombie_talisman": "Zombie Talisman",
 
-  "itemgroup.mob_talisman.mob_talisman_items": "Mob Talisman"
+
+  "tooltip.mob-talisman.horse_talisman.prefix": "Gain ",
+  "tooltip.mob-talisman.horse_talisman.suffix": " §2Step Height",
+
+  "tooltip.mob-talisman.bat_talisman": "Gain §dNight Vision",
+
+  "tooltip.mob-talisman.iron_golem_talisman.prefix": "Gain ",
+  "tooltip.mob-talisman.iron_golem_talisman.suffix": " §chearts",
+
+  "tooltip.mob-talisman.chicken_talisman": "Gain §dSlow Falling",
+
+  "tooltip.mob-talisman.rabbit_talisman.prefix": "Gain ",
+  "tooltip.mob-talisman.rabbit_talisman.suffix": "§2% Jump Height",
+
+  "tooltip.mob-talisman.warden_talisman.prefix": "Gain ",
+  "tooltip.mob-talisman.warden_talisman.suffix": " §chearts",
+
+  "tooltip.mob-talisman.strider_talisman": "Gain the ability to §6walk on lava",
+
+  "tooltip.mob-talisman.cat_talisman.prefix": "Gain ",
+  "tooltip.mob-talisman.cat_talisman.suffix": "§b% movement speed",
+
+  "tooltip.mob-talisman.dolphin_talisman": "Gain §9Dolphins Grace",
+
+  "tooltip.mob-talisman.drowned_talisman.prefix": "Gain ",
+  "tooltip.mob-talisman.drowned_talisman.suffix": "§3% underwater breathing",
+
+  "tooltip.mob-talisman.glow_squid_talisman": "Gain §bGlowing",
+
+  "tooltip.mob-talisman.sheep_talisman": "Get a §4r§ca§6n§ed§ao§2m §bw§9o§1o§5l§r Block",
+
+  "tooltip.mob-talisman.breeze_talisman": "Get a §9Breeze Rod",
+
+  "tooltip.mob-talisman.witch_talisman": "When at or below §c3 hearts§r gain a §cfull heal",
+
+  "tooltip.mob-talisman.shulker_talisman": "Gain immunity against §5Levitation",
+
+  "tooltip.mob-talisman.tadpole_talisman.prefix": "Gain ",
+  "tooltip.mob-talisman.tadpole_talisman.suffix": "§3% scale",
+
+  "tooltip.mob-talisman.turtle_talisman": "Gain §2Resistance I",
+
+  "tooltip.mob-talisman.phantom_talisman": "§aRepairs all damaged items§r slowly over time",
+
+  "tooltip.mob-talisman.cow_talisman": "Gain immunity against all §8negative effects",
+
+  "tooltip.mob-talisman.parrot_talisman": "Get a §4r§ca§6n§ed§ao§bm §9d§1y§5e§r",
+
+  "tooltip.mob-talisman.squid_talisman.prefix": "Every player gains ",
+  "tooltip.mob-talisman.squid_talisman.suffix": " §eseconds§r of §8Blindness§r when hit",
+
+  "tooltip.mob-talisman.evoker_talisman": "Evokers now drop §62 Totems of Undying§r",
+
+  "tooltip.mob-talisman.guardian_talisman": "Get either §9Prismarine§r, §1Dark Prismarine§r, §3Prismarine Bricks§r or §bSea Lanterns",
+
+  "tooltip.mob-talisman.elder_guardian_talisman": "Get a §6sponge",
+
+  "tooltip.mob-talisman.ravager_talisman": "Gain §4Strength I",
+
+  "tooltip.mob-talisman.goat_talisman.prefix": "Every goat now has a ",
+  "tooltip.mob-talisman.goat_talisman.suffix": "§e% chance§r to drop a Goat Horn",
+
+  "tooltip.mob-talisman.wither_talisman": "Get a §6completely random item",
+
+  "tooltip.mob-talisman.allay_talisman.prefix": "Gain ",
+  "tooltip.mob-talisman.allay_talisman.suffix": "§6% collection range",
+
+  "tooltip.mob-talisman.silverfish_talisman.prefix": "Gain ",
+  "tooltip.mob-talisman.silverfish_talisman.suffix": "§5% mining speed",
+
+  "tooltip.mob-talisman.pig_talisman.prefix": "Get a §6Cooked Porkchop§r, or §cRotten Flesh§r with a ",
+  "tooltip.mob-talisman.pig_talisman.suffix": "§e% chance§r instead",
+
+  "tooltip.mob-talisman.villager_talisman": "Every mob now drops §21-2 emeralds",
+
+  "tooltip.mob-talisman.enderman_talisman": "§6Saves§r your §6current position§r, when §6unequipped teleports§r you to §6that position",
+
+  "tooltip.mob-talisman.piglin_talisman": "Piglins don't attack you anymore",
+
+  "tooltip.mob-talisman.zombie_talisman.prefix": "Gain ",
+  "tooltip.mob-talisman.zombie_talisman.suffix": "§a% XP§r",
+
+  "tooltip.mob-talisman.skeleton_talisman": "Teleports you to your last §8death location",
+
+  "tooltip.mob-talisman.blaze_talisman": "Gain §6Fire Resistance",
+
+  "tooltip.mob-talisman.armadillo_talisman.prefix": "After taking damage, gain ",
+  "tooltip.mob-talisman.armadillo_talisman.suffix": " §eseconds§r of §8Invincibility",
+
+  "tooltip.mob-talisman.ender_dragon_talisman.prefix": "Gain a ",
+  "tooltip.mob-talisman.ender_dragon_talisman.suffix": "§e% increased chance§r to find a §6Talisman",
+
+  "tooltip.mob-talisman.pufferfish_talisman.prefix": "A player that attacks you will gain ",
+  "tooltip.mob-talisman.pufferfish_talisman.suffix": " §eseconds§r of §2Poison I",
+
+  "tooltip.mob-talisman.spider_talisman": "§aClimb on walls§r just like spiders",
+
+  "tooltip.mob-talisman.axolotl_talisman": "Gain §cRegeneration I",
+
+
+  "message.mob-talisman.enderman_talisman.position.saved": "§6Position got saved. Unequip your Talisman of to get teleported",
+  "message.mob-talisman.enderman_talisman.teleported": "§2Teleported you to your saved position",
+  "message.mob-talisman.enderman_talisman.teleported_error": "§4Couldn't teleport you - please report this on my Discord Server",
+
+  "tooltip.mob-talisman.breeze_talisman.cooldown.sec": "§7Cooldown: %ss",
+  "tooltip.mob-talisman.breeze_talisman.cooldown.min": "§7Cooldown: %smin",
+  "tooltip.mob-talisman.breeze_talisman.cooldown.min_sec": "§7Cooldown: %smin %ss",
+
+  "tooltip.mob-talisman.elder_guardian_talisman.cooldown.sec": "§7Cooldown: %ss",
+  "tooltip.mob-talisman.elder_guardian_talisman.cooldown.min": "§7Cooldown: %smin",
+  "tooltip.mob-talisman.elder_guardian_talisman.cooldown.min_sec": "§7Cooldown: %smin %ss",
+
+  "tooltip.mob-talisman.guardian_talisman.cooldown.sec": "§7Cooldown: %ss",
+  "tooltip.mob-talisman.guardian_talisman.cooldown.min": "§7Cooldown: %smin",
+  "tooltip.mob-talisman.guardian_talisman.cooldown.min_sec": "§7Cooldown: %smin %ss",
+
+  "tooltip.mob-talisman.parrot_talisman.cooldown.sec": "§7Cooldown: %ss",
+  "tooltip.mob-talisman.parrot_talisman.cooldown.min": "§7Cooldown: %smin",
+  "tooltip.mob-talisman.parrot_talisman.cooldown.min_sec": "§7Cooldown: %smin %ss",
+
+  "tooltip.mob-talisman.pig_talisman.cooldown.sec": "§7Cooldown: %ss",
+  "tooltip.mob-talisman.pig_talisman.cooldown.min": "§7Cooldown: %smin",
+  "tooltip.mob-talisman.pig_talisman.cooldown.min_sec": "§7Cooldown: %smin %ss",
+
+  "tooltip.mob-talisman.sheep_talisman.cooldown.sec": "§7Cooldown: %ss",
+  "tooltip.mob-talisman.sheep_talisman.cooldown.min": "§7Cooldown: %smin",
+  "tooltip.mob-talisman.sheep_talisman.cooldown.min_sec": "§7Cooldown: %smin %ss",
+
+  "tooltip.mob-talisman.wither_talisman.cooldown.sec": "§7Cooldown: %ss",
+  "tooltip.mob-talisman.wither_talisman.cooldown.min": "§7Cooldown: %smin",
+  "tooltip.mob-talisman.wither_talisman.cooldown.min_sec": "§7Cooldown: %smin %ss",
+
+  "tooltip.mob-talisman.witch_talisman.cooldown.sec": "§7Cooldown: %ss",
+  "tooltip.mob-talisman.witch_talisman.cooldown.min": "§7Cooldown: %smin",
+  "tooltip.mob-talisman.witch_talisman.cooldown.min_sec": "§7Cooldown: %smin %ss",
+  "tooltip.mob-talisman.witch_talisman.ready": "§7Cooldown: §aReady",
+
+  "tooltip.mob-talisman.armadillo_talisman.cooldown.sec": "§7Cooldown: %ss",
+  "tooltip.mob-talisman.armadillo_talisman.cooldown.min": "§7Cooldown: %smin",
+  "tooltip.mob-talisman.armadillo_talisman.cooldown.min_sec": "§7Cooldown: %smin %ss",
+  "tooltip.mob-talisman.armadillo_talisman.ready": "§7Cooldown: §aReady",
+  "tooltip.mob-talisman.armadillo_talisman.used": "§7Is used",
+
+  "message.mob-talisman.skeleton_talisman.teleported": "§2Teleported you to your death location",
+  "message.mob-talisman.skeleton_talisman.teleported_error": "§4In order to teleport to your death location, you first need to die",
+
+
+  "itemgroup.mob_talisman.mob_talisman_items": "Mob Talisman",
+
+
+
+
+  "text.config.mob-talisman.title": "Mob Talisman",
+
+  "text.config.mob-talisman.section.Dropchances": "Dropchances",
+  "text.config.mob-talisman.section.Other Configurations": "Other Configurations",
+
+  "text.config.mob-talisman.option.dropchanceForAllayTalisman": "Allay Talisman",
+  "text.config.mob-talisman.option.dropchanceForArmadilloTalisman": "Armadillo Talisman",
+  "text.config.mob-talisman.option.dropchanceForAxolotlTalisman": "Axolotl Talisman",
+  "text.config.mob-talisman.option.dropchanceForBatTalisman": "Bat Talisman",
+  "text.config.mob-talisman.option.dropchanceForBlazeTalisman": "Blaze Talisman",
+  "text.config.mob-talisman.option.dropchanceForBreezeTalisman": "Breeze Talisman",
+  "text.config.mob-talisman.option.dropchanceForCatTalisman": "Cat Talisman",
+  "text.config.mob-talisman.option.dropchanceForChickenTalisman": "Chicken Talisman",
+  "text.config.mob-talisman.option.dropchanceForCowTalisman": "Cow Talisman",
+  "text.config.mob-talisman.option.dropchanceForDolphinTalisman": "Dolphin Talisman",
+  "text.config.mob-talisman.option.dropchanceForDrownedTalisman": "Drowned Talisman",
+  "text.config.mob-talisman.option.dropchanceForElderGuardianTalisman": "Elder Guardian Talisman",
+  "text.config.mob-talisman.option.dropchanceForEnderDragonTalisman": "Ender Dragon Talisman",
+  "text.config.mob-talisman.option.dropchanceForEndermanTalisman": "Enderman Talisman",
+  "text.config.mob-talisman.option.dropchanceForEvokerTalisman": "Evoker Talisman",
+  "text.config.mob-talisman.option.dropchanceForGlowSquidTalisman": "Glow Squid Talisman",
+  "text.config.mob-talisman.option.dropchanceForGoatTalisman": "Goat Talisman",
+  "text.config.mob-talisman.option.dropchanceForGuardianTalisman": "Guardian Talisman",
+  "text.config.mob-talisman.option.dropchanceForHorseTalisman": "Horse Talisman",
+  "text.config.mob-talisman.option.dropchanceForIronGolemTalisman": "Iron Golem Talisman",
+  "text.config.mob-talisman.option.dropchanceForParrotTalisman": "Parrot Talisman",
+  "text.config.mob-talisman.option.dropchanceForPhantomTalisman": "Phantom Talisman",
+  "text.config.mob-talisman.option.dropchanceForPiglinTalisman": "Piglin Talisman",
+  "text.config.mob-talisman.option.dropchanceForPigTalisman": "Pig Talisman",
+  "text.config.mob-talisman.option.dropchanceForPufferfishTalisman": "Pufferfish Talisman",
+  "text.config.mob-talisman.option.dropchanceForRabbitTalisman": "Rabbit Talisman",
+  "text.config.mob-talisman.option.dropchanceForRavagerTalisman": "Ravager Talisman",
+  "text.config.mob-talisman.option.dropchanceForSheepTalisman": "Sheep Talisman",
+  "text.config.mob-talisman.option.dropchanceForShulkerTalisman": "Shulker Talisman",
+  "text.config.mob-talisman.option.dropchanceForSilverfishTalisman": "Silverfish Talisman",
+  "text.config.mob-talisman.option.dropchanceForSkeletonTalisman": "Skeleton Talisman",
+  "text.config.mob-talisman.option.dropchanceForSpiderTalisman": "Spider Talisman",
+  "text.config.mob-talisman.option.dropchanceForSquidTalisman": "Squid Talisman",
+  "text.config.mob-talisman.option.dropchanceForStriderTalisman": "Strider Talisman",
+  "text.config.mob-talisman.option.dropchanceForTadpoleTalisman": "Tadpole Talisman",
+  "text.config.mob-talisman.option.dropchanceForTurtleTalisman": "Turtle Talisman",
+  "text.config.mob-talisman.option.dropchanceForVillagerTalisman": "Villager Talisman",
+  "text.config.mob-talisman.option.dropchanceForWardenTalisman": "Warden Talisman",
+  "text.config.mob-talisman.option.dropchanceForWitchTalisman": "Witch Talisman",
+  "text.config.mob-talisman.option.dropchanceForWitherTalisman": "Wither Talisman",
+  "text.config.mob-talisman.option.dropchanceForZombieTalisman": "Zombie Talisman",
+  "text.config.mob-talisman.option.dropchanceForGoatHorn": "Chance for a Goat Horn Drop from Goat Talisman",
+  "text.config.mob-talisman.option.dropchanceForRottenFlesh": "Chance for a Rotten Flesh to be created instead of a Porkchop from Pig Talisman",
+  "text.config.mob-talisman.option.dropchanceForTalisman": "Increased Chance that a Talisman is dropped from Ender Dragon Talisman",
+  "text.config.mob-talisman.option.increasedCollectionRangeForAllayTalisman": "The increased amount of collection range from Allay Talisman",
+  "text.config.mob-talisman.option.increasedMovementSpeedForCatTalisman": "The increased amount of movement speed from Cat Talisman",
+  "text.config.mob-talisman.option.increasedUnderwaterBreathingForDrownedTalisman": "The increased amount of underwater breathing from Drowned Talisman",
+  "text.config.mob-talisman.option.increasedStepHeightForHorseTalisman": "The increased amount of Step Height from Horse Talisman",
+  "text.config.mob-talisman.option.increasedHeartsForIronGolemTalisman": "The increased amount of hearts from Iron Golem Talisman",
+  "text.config.mob-talisman.option.increasedJumpHeightForRabbitTalisman": "The increased amount of Jump Height from Rabbit Talisman",
+  "text.config.mob-talisman.option.increasedMiningSpeedForSilverfishTalisman": "The increased amount of mining speed from Silverfish Talisman",
+  "text.config.mob-talisman.option.decreasedScaleForTadpoleTalisman": "The decreased amount of scale from Tadpole Talisman",
+  "text.config.mob-talisman.option.increasedHeartsForWardenTalisman": "The increased amount of hearts from Warden Talisman",
+  "text.config.mob-talisman.option.increasedXPForZombieTalisman": "The increased amount of experience from Zombie Talisman",
+  "text.config.mob-talisman.option.minDurabilityForPhantom": "The min. durability that gets repaired from Phantom Talisman",
+  "text.config.mob-talisman.option.maxDurabilityForPhantom": "The max. durability that gets repaired from Phantom Talisman",
+  "text.config.mob-talisman.option.minCooldownForPhantom": "The min. cooldown for repairing an item from Phantom Talisman",
+  "text.config.mob-talisman.option.maxCooldownForPhantom": "The max. cooldown for repairing an item from Phantom Talisman",
+  "text.config.mob-talisman.option.jumpForWallClimbing": "Only climb on walls when jumped using Spider Talisman",
+  "text.config.mob-talisman.option.durationForArmadilloTalisman": "Invincibility duration for Armadillo Talisman",
+  "text.config.mob-talisman.option.durationForPufferfishTalisman": "Poison duration for Pufferfish Talisman",
+  "text.config.mob-talisman.option.durationForSquidTalisman": "Blindness duration for Squid Talisman",
+  "text.config.mob-talisman.option.cooldownForArmadilloTalisman": "Cooldown for Armadillo Talisman",
+  "text.config.mob-talisman.option.cooldownForBreezeTalisman": "Cooldown for Breeze Talisman",
+  "text.config.mob-talisman.option.cooldownForElderGuardianTalisman": "Cooldown for Elder Guardian Talisman",
+  "text.config.mob-talisman.option.cooldownForGuardianTalisman": "Cooldown for Guardian Talisman",
+  "text.config.mob-talisman.option.cooldownForParrotTalisman": "Cooldown for Parrot Talisman",
+  "text.config.mob-talisman.option.cooldownForPigTalisman": "Cooldown for Pig Talisman",
+  "text.config.mob-talisman.option.cooldownForSheepTalisman": "Cooldown for Sheep Talisman",
+  "text.config.mob-talisman.option.cooldownForWitchTalisman": "Cooldown for Witch Talisman",
+  "text.config.mob-talisman.option.cooldownForWitherTalisman": "Cooldown for Wither Talisman"
 }
