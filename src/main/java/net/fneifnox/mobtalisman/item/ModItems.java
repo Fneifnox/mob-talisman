@@ -84,9 +84,6 @@ public class ModItems {
     public static Item RAVAGER_TALISMAN = registerItem("ravager_talisman",
             new RavagerTalisman(new Item.Settings().maxCount(1).rarity(Rarity.UNCOMMON)));
 
-    public static Item GOAT_TALISMAN = registerItem("goat_talisman",
-            new GoatTalisman(new Item.Settings().maxCount(1).rarity(Rarity.UNCOMMON)));
-
     public static Item WITHER_TALISMAN = registerItem("wither_talisman",
             new WitherTalisman(new Item.Settings().maxCount(1).rarity(Rarity.UNCOMMON)));
 
@@ -131,6 +128,21 @@ public class ModItems {
 
     public static Item AXOLOTL_TALISMAN = registerItem("axolotl_talisman",
             new AxolotlTalisman(new Item.Settings().maxCount(1).rarity(Rarity.UNCOMMON)));
+
+    public static Item GHAST_TALISMAN = registerItem("ghast_talisman",
+            new GhastTalisman(new Item.Settings().maxCount(1).rarity(Rarity.UNCOMMON)));
+
+    public static Item CAMEL_TALISMAN = registerItem("camel_talisman",
+            new CamelTalisman(new Item.Settings().maxCount(1).rarity(Rarity.UNCOMMON)));
+
+    public static Item CREEPER_TALISMAN = registerItem("creeper_talisman",
+            new CreeperTalisman(new Item.Settings().maxCount(1).rarity(Rarity.UNCOMMON)));
+
+    public static Item ZOMBIE_VILLAGER_TALISMAN = registerItem("zombie_villager_talisman",
+            new ZombieVillagerTalisman(new Item.Settings().maxCount(1).rarity(Rarity.UNCOMMON)));
+
+    public static Item ENDERMITE_TALISMAN = registerItem("endermite_talisman",
+            new EndermiteTalisman(new Item.Settings().maxCount(1).rarity(Rarity.UNCOMMON)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(MobTalisman.MOD_ID, name), item);

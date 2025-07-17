@@ -31,7 +31,7 @@ public class PlayerAttackEffectMixin {
                     int duration = CONFIG.durationForSquidTalisman();
                     attackedPlayer.addStatusEffect(new StatusEffectInstance(
                             StatusEffects.BLINDNESS,
-                            20 * duration, // 10 Seconds
+                            20 * duration,
                             0,
                             false, true, true
 
@@ -43,7 +43,7 @@ public class PlayerAttackEffectMixin {
                     int duration = CONFIG.durationForPufferfishTalisman();
                     attacker.addStatusEffect(new StatusEffectInstance(
                             StatusEffects.POISON,
-                            20 * duration, // 10 Seconds
+                            20 * duration,
                             0,
                             false, true, true
 

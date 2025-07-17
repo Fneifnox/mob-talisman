@@ -57,6 +57,18 @@ public class TadpoleTalisman extends AccessoryItem {
                     .append(Text.literal("-" + chance).formatted(Formatting.DARK_AQUA))
                     .append(Text.translatable("tooltip.mob-talisman.tadpole_talisman.suffix")));
         }
+
+        if (CONFIG.showDropchancesAsTooltip()) {
+            float dropchance = CONFIG.dropchanceForTadpoleTalisman();
+            if (dropchance == (int) dropchance) {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + (int) dropchance + "%").formatted(Formatting.GRAY)));
+            }
+            else {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + dropchance + "%").formatted(Formatting.GRAY)));
+            }
+        }
         super.appendTooltip(stack, context, tooltip, type);
     }
 }

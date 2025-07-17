@@ -3,8 +3,9 @@ package net.fneifnox.mobtalisman.item.custom;
 import io.wispforest.accessories.api.AccessoryItem;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.fneifnox.mobtalisman.component.ModDataComponentTypes;
+import net.fneifnox.mobtalisman.component.cca.BooleanComponent;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -14,6 +15,7 @@ import net.minecraft.util.Formatting;
 import java.util.*;
 
 import static net.fneifnox.mobtalisman.MobTalisman.CONFIG;
+import static net.fneifnox.mobtalisman.component.cca.MyComponents.ARMADILLO_FLOATING_ITEM;
 
 public class ArmadilloTalisman extends AccessoryItem {
 
@@ -34,11 +36,8 @@ public class ArmadilloTalisman extends AccessoryItem {
 
         equippedPlayers.put(player.getUuid(), stack.getOrDefault(ModDataComponentTypes.EQUIPPED_PLAYERS_ARMADILLO, false));
         stack.set(ModDataComponentTypes.RESISTANCE_GIVEN_ARMADILLO, resistanceGiven.getOrDefault(player.getUuid(), false));
-        resistanceGiven.put(player.getUuid(), stack.getOrDefault(ModDataComponentTypes.RESISTANCE_GIVEN_ARMADILLO, false));
 
-        System.out.println("Ticks: " + ticks);
-
-        if (ticks >= (CONFIG.cooldownForArmadilloTalisman() * 20)) { // 3600 Ticks = 3 Minutes
+        if (ticks >= (CONFIG.cooldownForArmadilloTalisman() * 20)) {
             stack.set(ModDataComponentTypes.ABILITY_USABLE_ARMADILLO, true);
         }
 
@@ -49,17 +48,38 @@ public class ArmadilloTalisman extends AccessoryItem {
         if (!player.hasStatusEffect(StatusEffects.RESISTANCE) && stack.getOrDefault(ModDataComponentTypes.EQUIPPED_PLAYERS_ARMADILLO, false) == true
                 && stack.getOrDefault(ModDataComponentTypes.RESISTANCE_GIVEN_ARMADILLO, false) == true) {
             ticks = 0;
-            ArmadilloTalisman.PlayerEndArmadilloTalismanAbility(stack);
+            ArmadilloTalisman.PlayerEndArmadilloTalismanAbility(stack, player);
         }
 
         tickCounter.put(player.getUuid(), ticks);
     }
 
-    public static void PlayerEndArmadilloTalismanAbility(ItemStack stack) {
+    @Override
+    public void onUnequip(ItemStack stack, SlotReference reference) {
+        if (!(reference.entity() instanceof ServerPlayerEntity player)) return;
+        setBooleanFalse(player);
+    }
+
+    public static void PlayerEndArmadilloTalismanAbility(ItemStack stack, ServerPlayerEntity player) {
         stack.set(ModDataComponentTypes.ABILITY_USABLE_ARMADILLO, false);
         stack.set(ModDataComponentTypes.TICK_COUNTER_ARMADILLO, 0);
         stack.set(ModDataComponentTypes.EQUIPPED_PLAYERS_ARMADILLO, false);
         stack.set(ModDataComponentTypes.RESISTANCE_GIVEN_ARMADILLO, false);
+        resistanceGiven.put(player.getUuid(), false);
+    }
+
+    public static boolean useBoolean(Entity provider) {
+        return ARMADILLO_FLOATING_ITEM.get(provider).getValue();
+    }
+
+    public static void setBooleanFalse(Entity provider) {
+        BooleanComponent component = ARMADILLO_FLOATING_ITEM.get(provider);
+        component.setValue(false);
+    }
+
+    public static void setBooleanTrue(Entity provider) {
+        BooleanComponent component = ARMADILLO_FLOATING_ITEM.get(provider);
+        component.setValue(true);
     }
 
     @Override
@@ -87,6 +107,18 @@ public class ArmadilloTalisman extends AccessoryItem {
         }
         else if (stack.getOrDefault(ModDataComponentTypes.EQUIPPED_PLAYERS_ARMADILLO, false) == true) {
             tooltip.add(Text.translatable("tooltip.mob-talisman.armadillo_talisman.used"));
+        }
+
+        if (CONFIG.showDropchancesAsTooltip()) {
+            float dropchance = CONFIG.dropchanceForArmadilloTalisman();
+            if (dropchance == (int) dropchance) {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + (int) dropchance + "%").formatted(Formatting.GRAY)));
+            }
+            else {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + dropchance + "%").formatted(Formatting.GRAY)));
+            }
         }
         super.appendTooltip(stack, context, tooltip, type);
     }

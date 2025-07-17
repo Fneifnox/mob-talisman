@@ -1,5 +1,4 @@
-// 1.21.1	2025-06-20T13:23:04.6845367	Mob Talisman/Model Definitions
-6862839363d3516f44541742393703b3ea506bfd assets\mob-talisman\models\item\goat_talisman.json
+// 1.21.1	2025-07-16T17:34:41.319852	Mob Talisman/Model Definitions
 2959eed593ee8dc089279ac8b8098564d2f287ca assets\mob-talisman\models\item\iron_golem_talisman.json
 30c9d9551c29124f620617d01e61ec6fc4b171a2 assets\mob-talisman\models\item\bat_talisman.json
 73506e08a777c65c53f6b0add35302029d6037bc assets\mob-talisman\models\item\cow_talisman.json
@@ -13,6 +12,7 @@ d88ab66dd1e251d062cd6067017e152cb51a44e9 assets\mob-talisman\models\item\axolotl
 139e631c7008795e466668009799d5002463ff06 assets\mob-talisman\models\item\villager_talisman.json
 47afd9f6a69e6679495bd18c6c788760cf2e94c4 assets\mob-talisman\models\item\ender_dragon_talisman.json
 98e3015fd945f556b9f8b6192342b15ca51032aa assets\mob-talisman\models\item\glow_squid_talisman.json
+8e2d89df80a17dec591eda62996d882f79156185 assets\mob-talisman\models\item\zombie_villager_talisman.json
 1aa2dc1ee4ec8f1b7741ca602031bcf46f13c072 assets\mob-talisman\models\item\parrot_talisman.json
 0715f5565eafd7b366ed31817b106c09c2397922 assets\mob-talisman\models\item\cat_talisman.json
 ba9f4d547df3cb78035b8b677169bc1e64dbc093 assets\mob-talisman\models\item\strider_talisman.json
@@ -20,13 +20,17 @@ e9d8e995a1f63675257f695e69f3094596cd3af1 assets\mob-talisman\models\item\pig_tal
 adee424bbf23438c004d29296b869c2411d53b83 assets\mob-talisman\models\item\tadpole_talisman.json
 a1747333a33b391f6f140f631d7f5fc8f4283743 assets\mob-talisman\models\item\phantom_talisman.json
 49ed19ad4df5f25646dea92ef46e6995722cf6e3 assets\mob-talisman\models\item\drowned_talisman.json
+6c035a48a81d05fcd90c855a0086ddd8aa753023 assets\mob-talisman\models\item\ghast_talisman.json
 a4927b7fc11832bb1d87ba78d0e1ece855031508 assets\mob-talisman\models\item\allay_talisman.json
+49fb0aa643403ad51da3abab856a79ee64e96ae3 assets\mob-talisman\models\item\camel_talisman.json
 6ea9f195f887022cd0f2ed500fecf88959f7e3e8 assets\mob-talisman\models\item\dolphin_talisman.json
 7ca4f5b86d98e1a0980c98d7df9767cafb017192 assets\mob-talisman\models\item\squid_talisman.json
 598baccdad63be1280e249964b59ea2d59d55cd7 assets\mob-talisman\models\item\ravager_talisman.json
 74c5e33b2f9300f6913d8717bc29d5fbe143fac4 assets\mob-talisman\models\item\pufferfish_talisman.json
 51e3d418b6fc81a73a805dc0abeb55ca4635b46d assets\mob-talisman\models\item\armadillo_talisman.json
+5e92b510a52e1ad67e5bbda031f11149cfbd9b44 assets\mob-talisman\models\item\creeper_talisman.json
 c7818a348c21358c34aa91f3c3503f1fbce17ea7 assets\mob-talisman\models\item\skeleton_talisman.json
+7510a8011509c29fb0afae855a5f16fa80354eef assets\mob-talisman\models\item\endermite_talisman.json
 b35330209524826af6395f62995b58004521a4e1 assets\mob-talisman\models\item\zombie_talisman.json
 b9e90a2958ec0ca3d623b63314930b8e06da11b4 assets\mob-talisman\models\item\enderman_talisman.json
 ed282ae8a32ddca294fd8266fa1dd3f886d543ae assets\mob-talisman\models\item\breeze_talisman.json

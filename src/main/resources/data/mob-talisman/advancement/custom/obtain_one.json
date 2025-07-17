@@ -47,7 +47,6 @@
               "mob-talisman:guardian_talisman",
               "mob-talisman:elder_guardian_talisman",
               "mob-talisman:ravager_talisman",
-              "mob-talisman:goat_talisman",
               "mob-talisman:wither_talisman",
               "mob-talisman:allay_talisman",
               "mob-talisman:silverfish_talisman",
@@ -62,7 +61,12 @@
               "mob-talisman:pufferfish_talisman",
               "mob-talisman:spider_talisman",
               "mob-talisman:axolotl_talisman",
-              "mob-talisman:enderman_talisman"
+              "mob-talisman:enderman_talisman",
+              "mob-talisman:ghast_talisman",
+              "mob-talisman:camel_talisman",
+              "mob-talisman:creeper_talisman",
+              "mob-talisman:zombie_villager_talisman",
+              "mob-talisman:endermite_talisman"
             ],
             "count": 1
           }

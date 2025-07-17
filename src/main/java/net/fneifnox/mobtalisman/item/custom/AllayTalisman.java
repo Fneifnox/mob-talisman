@@ -3,6 +3,8 @@ package net.fneifnox.mobtalisman.item.custom;
 import de.dafuqs.additionalentityattributes.AdditionalEntityAttributes;
 import io.wispforest.accessories.api.AccessoryItem;
 import io.wispforest.accessories.api.slot.SlotReference;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
@@ -56,6 +58,19 @@ public class AllayTalisman extends AccessoryItem {
             tooltip.add(Text.translatable("tooltip.mob-talisman.cat_talisman.prefix")
                     .append(Text.literal("+" + chance).formatted(Formatting.GOLD))
                     .append(Text.translatable("tooltip.mob-talisman.allay_talisman.suffix")));
+        }
+
+        if (CONFIG.showDropchancesAsTooltip()) {
+            float dropchance = CONFIG.dropchanceForAllayTalisman();
+            ClientPlayerEntity player = MinecraftClient.getInstance().player;
+            if (dropchance == (int) dropchance) {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + (int) dropchance + "%").formatted(Formatting.GRAY)));
+            }
+            else {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + dropchance + "%").formatted(Formatting.GRAY)));
+            }
         }
         super.appendTooltip(stack, context, tooltip, type);
     }

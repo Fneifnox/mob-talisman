@@ -2,10 +2,16 @@ package net.fneifnox.mobtalisman;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fneifnox.mobtalisman.component.ModDataComponentTypes;
 import net.fneifnox.mobtalisman.config.MobT;
 import net.fneifnox.mobtalisman.item.ModItemGroups;
 import net.fneifnox.mobtalisman.item.ModItems;
+import net.fneifnox.mobtalisman.networking.ModMessages;
+import net.fneifnox.mobtalisman.networking.packet.BreezeC2SPacket;
+import net.fneifnox.mobtalisman.networking.packet.CamelC2SPacket;
+import net.fneifnox.mobtalisman.networking.packet.GhastC2SPacket;
+import net.fneifnox.mobtalisman.networking.packet.IronGolemC2SPacket;
 import net.fneifnox.mobtalisman.util.ModLootTableModifiers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,9 +19,6 @@ import org.slf4j.LoggerFactory;
 public class MobTalisman implements ModInitializer {
 	public static final String MOD_ID = "mob-talisman";
 
-	// This logger is used to write text to the console and the log file.
-	// It is considered best practice to use your mod id as the logger's name.
-	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	@Override
@@ -24,6 +27,11 @@ public class MobTalisman implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ModLootTableModifiers.modifyLootTables();
 		ModDataComponentTypes.registerDataComponentTypes();
+		PayloadTypeRegistry.playC2S().register(BreezeC2SPacket.ID, BreezeC2SPacket.CODEC);
+		PayloadTypeRegistry.playC2S().register(GhastC2SPacket.ID, GhastC2SPacket.CODEC);
+		PayloadTypeRegistry.playC2S().register(CamelC2SPacket.ID, CamelC2SPacket.CODEC);
+		PayloadTypeRegistry.playC2S().register(IronGolemC2SPacket.ID, IronGolemC2SPacket.CODEC);
+		ModMessages.registerC2SPackets();
 
 		CONFIG.load();
 		CONFIG.save();

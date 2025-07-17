@@ -40,6 +40,11 @@ public class PlayerClimbingMixin {
         else if (CONFIG.jumpForWallClimbing()) {
             if (self.horizontalCollision && !self.isOnGround()) {
                 cir.setReturnValue(true);
+                if (player instanceof ServerPlayerEntity serverPlayer) {
+                    Identifier id = Identifier.of("mob-talisman", "custom/i_think_spider_bit_me");
+                    AdvancementEntry entry = Objects.requireNonNull(serverPlayer.getServer()).getAdvancementLoader().get(id);
+                    serverPlayer.getAdvancementTracker().grantCriterion(entry, "climbing");
+                }
             }
         }
     }

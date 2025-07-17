@@ -1,8 +1,7 @@
 {
   "display": {
     "icon": {
-      "id": "mob-talisman:zombie_talisman",
-      "count": 1
+      "id": "mob-talisman:zombie_talisman"
     },
     "title": {
       "translate": "advancements.mob-talisman.root.title"
@@ -10,7 +9,7 @@
     "description": {
       "translate": "advancements.mob-talisman.root.description"
     },
-    "background": "minecraft:textures/block/diamond_block",
+    "background": "mob-talisman:textures/gui/advancements/backgrounds/raw_gold_block.png",
     "frame": "task",
     "show_toast": false,
     "announce_to_chat": false
