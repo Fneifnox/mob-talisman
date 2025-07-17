@@ -11,7 +11,7 @@ import net.minecraft.util.Identifier;
 
 public class ModItemGroups {
     public static final ItemGroup MOB_TALISMAN_ITEMS_GROUP = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(MobTalisman.MOD_ID, "advanced_equipment_items"),
+            Identifier.of(MobTalisman.MOD_ID, "mob-talisman_items"),
             FabricItemGroup.builder().icon(() -> new ItemStack(ModItems.ZOMBIE_TALISMAN))
                     .displayName(Text.translatable("itemgroup.mob_talisman.mob_talisman_items"))
                     .entries((displayContext, entries) -> {
@@ -22,17 +22,20 @@ public class ModItemGroups {
                         entries.add(ModItems.BAT_TALISMAN);
                         entries.add(ModItems.BLAZE_TALISMAN);
                         entries.add(ModItems.BREEZE_TALISMAN);
+                        entries.add(ModItems.CAMEL_TALISMAN);
                         entries.add(ModItems.CAT_TALISMAN);
                         entries.add(ModItems.CHICKEN_TALISMAN);
                         entries.add(ModItems.COW_TALISMAN);
+                        entries.add(ModItems.CREEPER_TALISMAN);
                         entries.add(ModItems.DOLPHIN_TALISMAN);
                         entries.add(ModItems.DROWNED_TALISMAN);
                         entries.add(ModItems.ELDER_GUARDIAN_TALISMAN);
                         entries.add(ModItems.ENDER_DRAGON_TALISMAN);
                         entries.add(ModItems.ENDERMAN_TALISMAN);
+                        entries.add(ModItems.ENDERMITE_TALISMAN);
                         entries.add(ModItems.EVOKER_TALISMAN);
+                        entries.add(ModItems.GHAST_TALISMAN);
                         entries.add(ModItems.GLOW_SQUID_TALISMAN);
-                        entries.add(ModItems.GOAT_TALISMAN);
                         entries.add(ModItems.GUARDIAN_TALISMAN);
                         entries.add(ModItems.HORSE_TALISMAN);
                         entries.add(ModItems.IRON_GOLEM_TALISMAN);
@@ -57,6 +60,7 @@ public class ModItemGroups {
                         entries.add(ModItems.WITCH_TALISMAN);
                         entries.add(ModItems.WITHER_TALISMAN);
                         entries.add(ModItems.ZOMBIE_TALISMAN);
+                        entries.add(ModItems.ZOMBIE_VILLAGER_TALISMAN);
                     }).build());
 
     public static void registerItemGroups() {

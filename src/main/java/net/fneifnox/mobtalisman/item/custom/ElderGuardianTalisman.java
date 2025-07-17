@@ -8,6 +8,7 @@ import net.minecraft.item.Items;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 
 import java.util.*;
 
@@ -62,6 +63,18 @@ public class ElderGuardianTalisman extends AccessoryItem {
         }
         else if (minutes > 0 && secondsLeft > 0) {
             tooltip.add(Text.translatable("tooltip.mob-talisman.elder_guardian_talisman.cooldown.min_sec", minutes, secondsLeft));
+        }
+
+        if (CONFIG.showDropchancesAsTooltip()) {
+            float dropchance = CONFIG.dropchanceForElderGuardianTalisman();
+            if (dropchance == (int) dropchance) {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + (int) dropchance + "%").formatted(Formatting.GRAY)));
+            }
+            else {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + dropchance + "%").formatted(Formatting.GRAY)));
+            }
         }
         super.appendTooltip(stack, context, tooltip, type);
     }

@@ -48,6 +48,18 @@ public class PufferfishTalisman extends AccessoryItem {
         tooltip.add(Text.translatable("tooltip.mob-talisman.pufferfish_talisman.prefix")
                 .append(Text.literal("" + duration).formatted(Formatting.YELLOW))
                 .append(Text.translatable("tooltip.mob-talisman.pufferfish_talisman.suffix")));
+
+        if (CONFIG.showDropchancesAsTooltip()) {
+            float dropchance = CONFIG.dropchanceForPufferfishTalisman();
+            if (dropchance == (int) dropchance) {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + (int) dropchance + "%").formatted(Formatting.GRAY)));
+            }
+            else {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + dropchance + "%").formatted(Formatting.GRAY)));
+            }
+        }
         super.appendTooltip(stack, context, tooltip, type);
     }
 }

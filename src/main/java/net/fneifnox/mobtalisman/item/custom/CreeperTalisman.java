@@ -8,17 +8,18 @@ import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
-import java.util.*;
-
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 import static net.fneifnox.mobtalisman.MobTalisman.CONFIG;
 
-public class GoatTalisman extends AccessoryItem {
+public class CreeperTalisman extends AccessoryItem {
 
     private static final Map<UUID, Boolean> equippedPlayers = new HashMap<>();
 
-    public GoatTalisman(Settings properties) {
+    public CreeperTalisman(Settings properties) {
         super(properties);
     }
 
@@ -38,22 +39,24 @@ public class GoatTalisman extends AccessoryItem {
         }
     }
 
-    public static boolean playerHasGoatTalismanEquipped(PlayerEntity player) {
+    public static boolean playerHasCreeperTalismanEquipped(PlayerEntity player) {
         return equippedPlayers.getOrDefault(player.getUuid(), false);
     }
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        float chance = CONFIG.dropchanceForGoatHorn();
-        if (chance == (int) chance) {
-            tooltip.add(Text.translatable("tooltip.mob-talisman.goat_talisman.prefix")
-                    .append(Text.literal("" + (int) chance).formatted(Formatting.YELLOW))
-                    .append(Text.translatable("tooltip.mob-talisman.goat_talisman.suffix")));
-        }
-        else {
-            tooltip.add(Text.translatable("tooltip.mob-talisman.goat_talisman.prefix")
-                    .append(Text.literal("" + chance).formatted(Formatting.YELLOW))
-                    .append(Text.translatable("tooltip.mob-talisman.goat_talisman.suffix")));
+        tooltip.add(Text.translatable("tooltip.mob-talisman.creeper_talisman"));
+
+        if (CONFIG.showDropchancesAsTooltip()) {
+            float dropchance = CONFIG.dropchanceForCreeperTalisman();
+            if (dropchance == (int) dropchance) {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + (int) dropchance + "%").formatted(Formatting.GRAY)));
+            }
+            else {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + dropchance + "%").formatted(Formatting.GRAY)));
+            }
         }
         super.appendTooltip(stack, context, tooltip, type);
     }

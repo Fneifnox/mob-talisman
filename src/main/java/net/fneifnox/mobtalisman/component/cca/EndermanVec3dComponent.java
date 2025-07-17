@@ -25,7 +25,7 @@ public class EndermanVec3dComponent implements Vec3dComponent, AutoSyncedCompone
     @Override
     public void setValue(Vec3d value) {
         this.value = value;
-        MyComponents.HAS_SPIDER_TALISMAN.sync(this.provider);
+        MyComponents.ENDERMAN_POSITION.sync(this.provider);
     }
 
     @Override

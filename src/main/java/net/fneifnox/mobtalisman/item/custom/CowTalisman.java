@@ -7,8 +7,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 
 import java.util.List;
+
+import static net.fneifnox.mobtalisman.MobTalisman.CONFIG;
 
 public class CowTalisman extends AccessoryItem {
 
@@ -19,26 +22,35 @@ public class CowTalisman extends AccessoryItem {
     @Override
     public void tick(ItemStack stack, SlotReference reference) {
         if (!(reference.entity() instanceof ServerPlayerEntity player)) return;
-        player.removeStatusEffect(StatusEffects.BLINDNESS);
-        player.removeStatusEffect(StatusEffects.DARKNESS);
-        player.removeStatusEffect(StatusEffects.HUNGER);
-        player.removeStatusEffect(StatusEffects.INFESTED);
-        player.removeStatusEffect(StatusEffects.INSTANT_DAMAGE);
-        player.removeStatusEffect(StatusEffects.MINING_FATIGUE);
-        player.removeStatusEffect(StatusEffects.NAUSEA);
-        player.removeStatusEffect(StatusEffects.OOZING);
-        player.removeStatusEffect(StatusEffects.POISON);
         player.removeStatusEffect(StatusEffects.SLOWNESS);
-        player.removeStatusEffect(StatusEffects.UNLUCK);
+        player.removeStatusEffect(StatusEffects.MINING_FATIGUE);
+        player.removeStatusEffect(StatusEffects.INSTANT_DAMAGE);
+        player.removeStatusEffect(StatusEffects.NAUSEA);
+        player.removeStatusEffect(StatusEffects.BLINDNESS);
+        player.removeStatusEffect(StatusEffects.HUNGER);
         player.removeStatusEffect(StatusEffects.WEAKNESS);
-        player.removeStatusEffect(StatusEffects.WEAVING);
-        player.removeStatusEffect(StatusEffects.WIND_CHARGED);
+        player.removeStatusEffect(StatusEffects.POISON);
         player.removeStatusEffect(StatusEffects.WITHER);
+        player.removeStatusEffect(StatusEffects.UNLUCK);
+        player.removeStatusEffect(StatusEffects.DARKNESS);
+        player.removeStatusEffect(StatusEffects.LEVITATION);
     }
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.translatable("tooltip.mob-talisman.cow_talisman"));
+
+        if (CONFIG.showDropchancesAsTooltip()) {
+            float dropchance = CONFIG.dropchanceForCowTalisman();
+            if (dropchance == (int) dropchance) {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + (int) dropchance + "%").formatted(Formatting.GRAY)));
+            }
+            else {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + dropchance + "%").formatted(Formatting.GRAY)));
+            }
+        }
         super.appendTooltip(stack, context, tooltip, type);
     }
 }

@@ -57,6 +57,18 @@ public class WardenTalisman extends AccessoryItem {
                     .append(Text.literal("+" + (chance / 2)).formatted(Formatting.RED))
                     .append(Text.translatable("tooltip.mob-talisman.warden_talisman.suffix")));
         }
+
+        if (CONFIG.showDropchancesAsTooltip()) {
+            float dropchance = CONFIG.dropchanceForWardenTalisman();
+            if (dropchance == (int) dropchance) {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + (int) dropchance + "%").formatted(Formatting.GRAY)));
+            }
+            else {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + dropchance + "%").formatted(Formatting.GRAY)));
+            }
+        }
         super.appendTooltip(stack, context, tooltip, type);
     }
 }

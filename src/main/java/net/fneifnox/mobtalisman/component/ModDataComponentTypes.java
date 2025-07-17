@@ -26,11 +26,20 @@ public class ModDataComponentTypes {
     public static final ComponentType<Integer> TICK_COUNTER_BREEZE =
             register("tick_counter_breeze", builder -> builder.codec(Codec.INT));
 
+    public static final ComponentType<Integer> TICK_COUNTER_CAMEL =
+            register("tick_counter_camel", builder -> builder.codec(Codec.INT));
+
     public static final ComponentType<Integer> TICK_COUNTER_ELDER_GUARDIAN =
             register("tick_counter_elder_guardian", builder -> builder.codec(Codec.INT));
 
+    public static final ComponentType<Integer> TICK_COUNTER_GHAST =
+            register("tick_counter_ghast", builder -> builder.codec(Codec.INT));
+
     public static final ComponentType<Integer> TICK_COUNTER_GUARDIAN =
             register("tick_counter_guardian", builder -> builder.codec(Codec.INT));
+
+    public static final ComponentType<Integer> TICK_COUNTER_IRON_GOLEM =
+            register("tick_counter_iron_golem", builder -> builder.codec(Codec.INT));
 
     public static final ComponentType<Integer> TICK_COUNTER_PARROT =
             register("tick_counter_parrot", builder -> builder.codec(Codec.INT));

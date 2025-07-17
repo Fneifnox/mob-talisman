@@ -5,19 +5,27 @@
 		"cardinal-components": [
 			"mob-talisman:has_spider_talisman",
 			"mob-talisman:enderman_position",
-			"mob-talisman:has_strider_talisman"
+			"mob-talisman:enderman_equipped",
+			"mob-talisman:has_strider_talisman",
+			"mob-talisman:breeze_talisman_ability_ready",
+			"mob-talisman:ghast_talisman_ability_ready",
+			"mob-talisman:camel_talisman_ability_ready",
+			"mob-talisman:iron_golem_talisman_ability_ready",
+			"mob-talisman:has_glow_squid_talisman",
+			"mob-talisman:armadillo_floating_item",
+			"mob-talisman:witch_floating_item"
 		]
 	},
 
 	"version": "${version}",
 	"name": "Mob Talisman",
-	"description": "This mod adds powerful talisman that can give you the powers from several mobs.",
+	"description": "This mod adds new talismans that grant various powers from different mobs.",
 	"authors": [
 		"Fneifnox"
 	],
 	"contact": {
 		"homepage": "https://discord.gg/bszSDCq5ms",
-		"sources": "https://modrinth.com/mod/mob-talisman"
+		"sources": "https://modrinth.com/project/vjel2moU"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/mob-talisman/icon.png",
@@ -26,10 +34,13 @@
 		"main": [
 			"net.fneifnox.mobtalisman.MobTalisman"
 		],
+		"client": [
+			"net.fneifnox.mobtalisman.MobTalismanClient"
+		],
 		"fabric-datagen": [
 			"net.fneifnox.mobtalisman.MobTalismanDataGenerator"
 		],
-		"cardinal-components": [
+		"cardinal-components-entity": [
 			"net.fneifnox.mobtalisman.component.cca.MyComponents"
 		]
 	},
@@ -38,7 +49,7 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.16.14",
-		"minecraft": "*",
+		"minecraft": ">=1.21 <1.21.2",
 		"java": ">=21",
 		"fabric-api": "*"
 	},

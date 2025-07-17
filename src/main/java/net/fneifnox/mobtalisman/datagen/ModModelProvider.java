@@ -45,7 +45,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.GUARDIAN_TALISMAN, Models.GENERATED);
         itemModelGenerator.register(ModItems.ELDER_GUARDIAN_TALISMAN, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAVAGER_TALISMAN, Models.GENERATED);
-        itemModelGenerator.register(ModItems.GOAT_TALISMAN, Models.GENERATED);
         itemModelGenerator.register(ModItems.WITHER_TALISMAN, Models.GENERATED);
         itemModelGenerator.register(ModItems.ALLAY_TALISMAN, Models.GENERATED);
         itemModelGenerator.register(ModItems.SILVERFISH_TALISMAN, Models.GENERATED);
@@ -61,5 +60,10 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SPIDER_TALISMAN, Models.GENERATED);
         itemModelGenerator.register(ModItems.AXOLOTL_TALISMAN, Models.GENERATED);
         itemModelGenerator.register(ModItems.ENDERMAN_TALISMAN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GHAST_TALISMAN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CAMEL_TALISMAN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CREEPER_TALISMAN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ZOMBIE_VILLAGER_TALISMAN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENDERMITE_TALISMAN, Models.GENERATED);
     }
 }

@@ -10,6 +10,7 @@ import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
 import java.util.*;
@@ -73,6 +74,18 @@ public class WitherTalisman extends AccessoryItem {
         }
         else if (minutes > 0 && secondsLeft > 0) {
             tooltip.add(Text.translatable("tooltip.mob-talisman.wither_talisman.cooldown.min_sec", minutes, secondsLeft));
+        }
+
+        if (CONFIG.showDropchancesAsTooltip()) {
+            float dropchance = CONFIG.dropchanceForWitherTalisman();
+            if (dropchance == (int) dropchance) {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + (int) dropchance + "%").formatted(Formatting.GRAY)));
+            }
+            else {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + dropchance + "%").formatted(Formatting.GRAY)));
+            }
         }
         super.appendTooltip(stack, context, tooltip, type);
     }

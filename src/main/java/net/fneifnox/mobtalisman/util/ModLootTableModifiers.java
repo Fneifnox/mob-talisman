@@ -20,17 +20,20 @@ public class ModLootTableModifiers {
     private static final Identifier BAT_ID = Identifier.of("minecraft", "entities/bat");
     private static final Identifier BLAZE_ID = Identifier.of("minecraft", "entities/blaze");
     private static final Identifier BREEZE_ID = Identifier.of("minecraft", "entities/breeze");
+    private static final Identifier CAMEL_ID = Identifier.of("minecraft", "entities/camel");
     private static final Identifier CAT_ID = Identifier.of("minecraft", "entities/cat");
     private static final Identifier CHICKEN_ID = Identifier.of("minecraft", "entities/chicken");
     private static final Identifier COW_ID = Identifier.of("minecraft", "entities/cow");
+    private static final Identifier CREEPER_ID = Identifier.of("minecraft", "entities/creeper");
     private static final Identifier DOLPHIN_ID = Identifier.of("minecraft", "entities/dolphin");
     private static final Identifier DROWNED_ID = Identifier.of("minecraft", "entities/drowned");
     private static final Identifier ELDER_GUARDIAN_ID = Identifier.of("minecraft", "entities/elder_guardian");
     private static final Identifier ENDER_DRAGON_ID = Identifier.of("minecraft", "entities/ender_dragon");
     private static final Identifier ENDERMAN_ID = Identifier.of("minecraft", "entities/enderman");
+    private static final Identifier ENDERMITE_ID = Identifier.of("minecraft", "entities/endermite");
     private static final Identifier EVOKER_ID = Identifier.of("minecraft", "entities/evoker");
+    private static final Identifier GHAST_ID = Identifier.of("minecraft", "entities/ghast");
     private static final Identifier GLOW_SQUID_ID = Identifier.of("minecraft", "entities/glow_squid");
-    private static final Identifier GOAT_ID = Identifier.of("minecraft", "entities/goat");
     private static final Identifier GUARDIAN_ID = Identifier.of("minecraft", "entities/guardian");
     private static final Identifier HORSE_ID = Identifier.of("minecraft", "entities/horse");
     private static final Identifier IRON_GOLEM_ID = Identifier.of("minecraft", "entities/iron_golem");
@@ -55,6 +58,7 @@ public class ModLootTableModifiers {
     private static final Identifier WITCH_ID = Identifier.of("minecraft", "entities/witch");
     private static final Identifier WITHER_ID = Identifier.of("minecraft", "entities/wither");
     private static final Identifier ZOMBIE_ID = Identifier.of("minecraft", "entities/zombie");
+    private static final Identifier ZOMBIE_VILLAGER_ID = Identifier.of("minecraft", "entities/zombie_villager");
 
     public static void modifyLootTables() {
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registry) -> {
@@ -119,6 +123,16 @@ public class ModLootTableModifiers {
                 tableBuilder.pool(poolBuilder.build());
             }
 
+            if (CAMEL_ID.equals(key.getValue())) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder((CONFIG.dropchanceForCamelTalisman() / 100)))
+                        .with(ItemEntry.builder(ModItems.CAMEL_TALISMAN))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
+
+                tableBuilder.pool(poolBuilder.build());
+            }
+
             if (CAT_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
@@ -144,6 +158,16 @@ public class ModLootTableModifiers {
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder((CONFIG.dropchanceForCowTalisman() / 100)))
                         .with(ItemEntry.builder(ModItems.COW_TALISMAN))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
+
+                tableBuilder.pool(poolBuilder.build());
+            }
+
+            if (CREEPER_ID.equals(key.getValue())) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder((CONFIG.dropchanceForCreeperTalisman() / 100)))
+                        .with(ItemEntry.builder(ModItems.CREEPER_TALISMAN))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
 
                 tableBuilder.pool(poolBuilder.build());
@@ -199,6 +223,16 @@ public class ModLootTableModifiers {
                 tableBuilder.pool(poolBuilder.build());
             }
 
+            if (ENDERMITE_ID.equals(key.getValue())) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder((CONFIG.dropchanceForEndermiteTalisman() / 100)))
+                        .with(ItemEntry.builder(ModItems.ENDERMITE_TALISMAN))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
+
+                tableBuilder.pool(poolBuilder.build());
+            }
+
             if (EVOKER_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
@@ -209,21 +243,21 @@ public class ModLootTableModifiers {
                 tableBuilder.pool(poolBuilder.build());
             }
 
-            if (GLOW_SQUID_ID.equals(key.getValue())) {
+            if (GHAST_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder((CONFIG.dropchanceForGlowSquidTalisman() / 100)))
-                        .with(ItemEntry.builder(ModItems.GLOW_SQUID_TALISMAN))
+                        .conditionally(RandomChanceLootCondition.builder((CONFIG.dropchanceForGhastTalisman() / 100)))
+                        .with(ItemEntry.builder(ModItems.GHAST_TALISMAN))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
 
                 tableBuilder.pool(poolBuilder.build());
             }
 
-            if (GOAT_ID.equals(key.getValue())) {
+            if (GLOW_SQUID_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder((CONFIG.dropchanceForGoatTalisman() / 100)))
-                        .with(ItemEntry.builder(ModItems.GOAT_TALISMAN))
+                        .conditionally(RandomChanceLootCondition.builder((CONFIG.dropchanceForGlowSquidTalisman() / 100)))
+                        .with(ItemEntry.builder(ModItems.GLOW_SQUID_TALISMAN))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
 
                 tableBuilder.pool(poolBuilder.build());
@@ -464,6 +498,16 @@ public class ModLootTableModifiers {
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder((CONFIG.dropchanceForZombieTalisman() / 100)))
                         .with(ItemEntry.builder(ModItems.ZOMBIE_TALISMAN))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
+
+                tableBuilder.pool(poolBuilder.build());
+            }
+
+            if (ZOMBIE_VILLAGER_ID.equals(key.getValue())) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder((CONFIG.dropchanceForZombieVillagerTalisman() / 100)))
+                        .with(ItemEntry.builder(ModItems.ZOMBIE_VILLAGER_TALISMAN))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
 
                 tableBuilder.pool(poolBuilder.build());

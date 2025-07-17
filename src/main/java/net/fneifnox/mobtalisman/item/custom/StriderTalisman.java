@@ -8,9 +8,11 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 
 import java.util.List;
 
+import static net.fneifnox.mobtalisman.MobTalisman.CONFIG;
 import static net.fneifnox.mobtalisman.component.cca.MyComponents.HAS_STRIDER_TALISMAN;
 
 public class StriderTalisman extends AccessoryItem {
@@ -52,6 +54,18 @@ public class StriderTalisman extends AccessoryItem {
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.translatable("tooltip.mob-talisman.strider_talisman"));
+
+        if (CONFIG.showDropchancesAsTooltip()) {
+            float dropchance = CONFIG.dropchanceForStriderTalisman();
+            if (dropchance == (int) dropchance) {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + (int) dropchance + "%").formatted(Formatting.GRAY)));
+            }
+            else {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + dropchance + "%").formatted(Formatting.GRAY)));
+            }
+        }
         super.appendTooltip(stack, context, tooltip, type);
     }
 }

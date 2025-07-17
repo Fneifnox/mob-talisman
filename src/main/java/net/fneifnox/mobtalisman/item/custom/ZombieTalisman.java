@@ -57,6 +57,18 @@ public class ZombieTalisman extends AccessoryItem {
                     .append(Text.literal("+" + chance).formatted(Formatting.GREEN))
                     .append(Text.translatable("tooltip.mob-talisman.zombie_talisman.suffix")));
         }
+
+        if (CONFIG.showDropchancesAsTooltip()) {
+            float dropchance = CONFIG.dropchanceForZombieTalisman();
+            if (dropchance == (int) dropchance) {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + (int) dropchance + "%").formatted(Formatting.GRAY)));
+            }
+            else {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + dropchance + "%").formatted(Formatting.GRAY)));
+            }
+        }
         super.appendTooltip(stack, context, tooltip, type);
     }
 }

@@ -57,6 +57,18 @@ public class HorseTalisman extends AccessoryItem {
                     .append(Text.literal("+" + chance).formatted(Formatting.DARK_GREEN))
                     .append(Text.translatable("tooltip.mob-talisman.horse_talisman.suffix")));
         }
+
+        if (CONFIG.showDropchancesAsTooltip()) {
+            float dropchance = CONFIG.dropchanceForHorseTalisman();
+            if (dropchance == (int) dropchance) {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + (int) dropchance + "%").formatted(Formatting.GRAY)));
+            }
+            else {
+                tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
+                        .append(Text.literal("" + dropchance + "%").formatted(Formatting.GRAY)));
+            }
+        }
         super.appendTooltip(stack, context, tooltip, type);
     }
 }

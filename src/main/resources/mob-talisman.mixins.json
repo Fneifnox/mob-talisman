@@ -1,21 +1,26 @@
 {
-	"required": true,
-	"package": "net.fneifnox.mobtalisman.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"EvokerLootMixin",
-		"GoatLootMixin",
-		"MobLootMixin",
-		"PiglinBrainMixin",
-		"PlayerDeathMixin",
-		"PlayerLavaMixin",
-		"PlayerFireMixin",
-      	"PlayerAttackEffectMixin",
-		"PlayerDamageMixin",
-		"TalismanDropMixin",
-		"PlayerClimbingMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "net.fneifnox.mobtalisman.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "CreeperBrainMixin",
+    "EvokerLootMixin",
+    "MobLootMixin",
+    "PiglinBrainMixin",
+    "PlayerAttackEffectMixin",
+    "PlayerClimbingMixin",
+    "PlayerDamageMixin",
+    "PlayerDeathMixin",
+    "PlayerFireMixin",
+    "PlayerLavaMixin",
+    "TalismanDropMixin",
+    "VillagerTradingMixin",
+    "accessor.GoalSelectorAccessor"
+  ],
+  "client": [
+    "GlowingItemsClientMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }
