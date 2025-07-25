@@ -30,6 +30,9 @@ public final class MyComponents implements EntityComponentInitializer {
     public static final ComponentKey<BooleanComponent> IRON_GOLEM_TALISMAN_ABILITY_READY =
             ComponentRegistry.getOrCreate(Identifier.of("mob-talisman", "iron_golem_talisman_ability_ready"), BooleanComponent.class);
 
+    public static final ComponentKey<BooleanComponent> DONKEY_TALISMAN_ABILITY_READY =
+            ComponentRegistry.getOrCreate(Identifier.of("mob-talisman", "donkey_talisman_ability_ready"), BooleanComponent.class);
+
     public static final ComponentKey<BooleanComponent> ARMADILLO_FLOATING_ITEM =
             ComponentRegistry.getOrCreate(Identifier.of("mob-talisman", "armadillo_floating_item"), BooleanComponent.class);
 
@@ -42,6 +45,9 @@ public final class MyComponents implements EntityComponentInitializer {
     public static final ComponentKey<BooleanComponent> ENDERMAN_EQUIPPED =
             ComponentRegistry.getOrCreate(Identifier.of("mob-talisman", "enderman_equipped"), BooleanComponent.class);
 
+    public static final ComponentKey<ItemStacksComponent> DONKEY_ITEMSTACKS_INVENTORY =
+            ComponentRegistry.getOrCreate(Identifier.of("mob-talisman", "donkey_itemstacks_inventory"), ItemStacksComponent.class);
+
 
     @Override
     public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
@@ -53,8 +59,10 @@ public final class MyComponents implements EntityComponentInitializer {
         registry.registerFor(PlayerEntity.class, GHAST_TALISMAN_ABILITY_READY, player -> new GhastBooleanComponent(player));
         registry.registerFor(PlayerEntity.class, CAMEL_TALISMAN_ABILITY_READY, player -> new CamelBooleanComponent(player));
         registry.registerFor(PlayerEntity.class, IRON_GOLEM_TALISMAN_ABILITY_READY, player -> new IronGolemBooleanComponent(player));
+        registry.registerFor(PlayerEntity.class, DONKEY_TALISMAN_ABILITY_READY, player -> new DonkeyBooleanComponent(player));
         registry.registerFor(PlayerEntity.class, HAS_GLOW_SQUID_TALISMAN, player -> new GlowSquidBooleanComponent(player));
         registry.registerFor(PlayerEntity.class, ARMADILLO_FLOATING_ITEM, player -> new ArmadilloBooleanComponent(player));
         registry.registerFor(PlayerEntity.class, WITCH_FLOATING_ITEM, player -> new WitchBooleanComponent(player));
+        registry.registerFor(PlayerEntity.class, DONKEY_ITEMSTACKS_INVENTORY, player -> new DonkeyItemStacksComponent(player));
     }
 }

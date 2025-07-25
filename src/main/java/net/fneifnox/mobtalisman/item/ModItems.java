@@ -144,6 +144,9 @@ public class ModItems {
     public static Item ENDERMITE_TALISMAN = registerItem("endermite_talisman",
             new EndermiteTalisman(new Item.Settings().maxCount(1).rarity(Rarity.UNCOMMON)));
 
+    public static Item DONKEY_TALISMAN = registerItem("donkey_talisman",
+            new DonkeyTalisman(new Item.Settings().maxCount(1).rarity(Rarity.UNCOMMON)));
+
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(MobTalisman.MOD_ID, name), item);
     }

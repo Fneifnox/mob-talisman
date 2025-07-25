@@ -3,10 +3,7 @@ package net.fneifnox.mobtalisman.event;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.fneifnox.mobtalisman.networking.packet.BreezeC2SPacket;
-import net.fneifnox.mobtalisman.networking.packet.CamelC2SPacket;
-import net.fneifnox.mobtalisman.networking.packet.GhastC2SPacket;
-import net.fneifnox.mobtalisman.networking.packet.IronGolemC2SPacket;
+import net.fneifnox.mobtalisman.networking.packet.*;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.entity.player.PlayerEntity;
@@ -27,11 +24,13 @@ public class KeyInputHandler {
     public static final String KEY_GHAST_ABILITY = "key.mob-talisman.ghast";
     public static final String KEY_CAMEL_ABILITY = "key.mob-talisman.camel";
     public static final String KEY_IRON_GOLEM_ABILITY = "key.mob-talisman.iron_golem";
+    public static final String KEY_DONKEY_ABILITY = "key.mob-talisman.donkey";
 
     public static KeyBinding breezeAbilityKey;
     public static KeyBinding ghastAbilityKey;
     public static KeyBinding camelAbilityKey;
     public static KeyBinding ironGolemAbilityKey;
+    public static KeyBinding donkeyAbilityKey;
 
     public static void registerKeyInputs() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
@@ -46,6 +45,9 @@ public class KeyInputHandler {
             }
             if (ironGolemAbilityKey.wasPressed()) {
                 ClientPlayNetworking.send(new IronGolemC2SPacket());
+            }
+            if (donkeyAbilityKey.wasPressed()) {
+                ClientPlayNetworking.send(new DonkeyC2SPacket());
             }
         });
     }
@@ -62,6 +64,9 @@ public class KeyInputHandler {
         ));
         ironGolemAbilityKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
                 KEY_IRON_GOLEM_ABILITY, InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_I, KEY_CATEGORY_MOB_TALISMAN
+        ));
+        donkeyAbilityKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+                KEY_DONKEY_ABILITY, InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_O, KEY_CATEGORY_MOB_TALISMAN
         ));
 
         registerKeyInputs();

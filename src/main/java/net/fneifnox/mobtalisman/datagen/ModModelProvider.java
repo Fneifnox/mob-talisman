@@ -65,5 +65,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CREEPER_TALISMAN, Models.GENERATED);
         itemModelGenerator.register(ModItems.ZOMBIE_VILLAGER_TALISMAN, Models.GENERATED);
         itemModelGenerator.register(ModItems.ENDERMITE_TALISMAN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DONKEY_TALISMAN, Models.GENERATED);
     }
 }

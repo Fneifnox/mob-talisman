@@ -1,10 +1,7 @@
 package net.fneifnox.mobtalisman.networking;
 
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.fneifnox.mobtalisman.networking.packet.BreezeC2SPacket;
-import net.fneifnox.mobtalisman.networking.packet.CamelC2SPacket;
-import net.fneifnox.mobtalisman.networking.packet.GhastC2SPacket;
-import net.fneifnox.mobtalisman.networking.packet.IronGolemC2SPacket;
+import net.fneifnox.mobtalisman.networking.packet.*;
 
 public class ModMessages {
 
@@ -19,6 +16,9 @@ public class ModMessages {
             context.player().getServer().execute(() -> payload.receive(context.player()));
         });
         ServerPlayNetworking.registerGlobalReceiver(IronGolemC2SPacket.ID, (payload, context) -> {
+            context.player().getServer().execute(() -> payload.receive(context.player()));
+        });
+        ServerPlayNetworking.registerGlobalReceiver(DonkeyC2SPacket.ID, (payload, context) -> {
             context.player().getServer().execute(() -> payload.receive(context.player()));
         });
     }

@@ -28,6 +28,7 @@ public class ModItemGroups {
                         entries.add(ModItems.COW_TALISMAN);
                         entries.add(ModItems.CREEPER_TALISMAN);
                         entries.add(ModItems.DOLPHIN_TALISMAN);
+                        entries.add(ModItems.DONKEY_TALISMAN);
                         entries.add(ModItems.DROWNED_TALISMAN);
                         entries.add(ModItems.ELDER_GUARDIAN_TALISMAN);
                         entries.add(ModItems.ENDER_DRAGON_TALISMAN);

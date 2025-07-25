@@ -8,11 +8,11 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import org.jetbrains.annotations.NotNull;
 import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
 
-public class BreezeBooleanComponent implements BooleanComponent, AutoSyncedComponent {
+public class DonkeyBooleanComponent implements BooleanComponent, AutoSyncedComponent {
     private boolean value = false;
     private final Entity provider;
 
-    public BreezeBooleanComponent(Entity provider) {
+    public DonkeyBooleanComponent(Entity provider) {
         this.provider = provider;
     }
 
@@ -24,7 +24,7 @@ public class BreezeBooleanComponent implements BooleanComponent, AutoSyncedCompo
     @Override
     public void setValue(boolean value) {
         this.value = value;
-        MyComponents.BREEZE_TALISMAN_ABILITY_READY.sync(this.provider);
+        MyComponents.DONKEY_TALISMAN_ABILITY_READY.sync(this.provider);
     }
 
     @Override

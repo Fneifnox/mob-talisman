@@ -1,4 +1,4 @@
-// 1.21.1	2025-07-16T17:34:41.319852	Mob Talisman/Model Definitions
+// 1.21.1	2025-07-25T14:44:08.8537817	Mob Talisman/Model Definitions
 2959eed593ee8dc089279ac8b8098564d2f287ca assets\mob-talisman\models\item\iron_golem_talisman.json
 30c9d9551c29124f620617d01e61ec6fc4b171a2 assets\mob-talisman\models\item\bat_talisman.json
 73506e08a777c65c53f6b0add35302029d6037bc assets\mob-talisman\models\item\cow_talisman.json
@@ -21,6 +21,7 @@ adee424bbf23438c004d29296b869c2411d53b83 assets\mob-talisman\models\item\tadpole
 a1747333a33b391f6f140f631d7f5fc8f4283743 assets\mob-talisman\models\item\phantom_talisman.json
 49ed19ad4df5f25646dea92ef46e6995722cf6e3 assets\mob-talisman\models\item\drowned_talisman.json
 6c035a48a81d05fcd90c855a0086ddd8aa753023 assets\mob-talisman\models\item\ghast_talisman.json
+5c2db3ec9711a55fcf42e45cef73b601d0d9d2c2 assets\mob-talisman\models\item\donkey_talisman.json
 a4927b7fc11832bb1d87ba78d0e1ece855031508 assets\mob-talisman\models\item\allay_talisman.json
 49fb0aa643403ad51da3abab856a79ee64e96ae3 assets\mob-talisman\models\item\camel_talisman.json
 6ea9f195f887022cd0f2ed500fecf88959f7e3e8 assets\mob-talisman\models\item\dolphin_talisman.json
