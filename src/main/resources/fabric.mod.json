@@ -11,9 +11,11 @@
 			"mob-talisman:ghast_talisman_ability_ready",
 			"mob-talisman:camel_talisman_ability_ready",
 			"mob-talisman:iron_golem_talisman_ability_ready",
+			"mob-talisman:donkey_talisman_ability_ready",
 			"mob-talisman:has_glow_squid_talisman",
 			"mob-talisman:armadillo_floating_item",
-			"mob-talisman:witch_floating_item"
+			"mob-talisman:witch_floating_item",
+			"mob-talisman:donkey_itemstacks_inventory"
 		]
 	},
 

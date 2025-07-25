@@ -16,9 +16,6 @@ public class VillagerTradingMixin {
 
     @Inject(method = "prepareOffersFor(Lnet/minecraft/entity/player/PlayerEntity;)V", at = @At("RETURN"))
     private void onPrepareOffersFor(PlayerEntity player, CallbackInfo ci) {
-        // Vanilla Code läuft vorher komplett durch
-        // Hier kannst du deinen eigenen Code hinzufügen
-
         VillagerEntity villager = (VillagerEntity)(Object)this;
 
         for (TradeOffer finalTradeOffer : villager.getOffers()) {

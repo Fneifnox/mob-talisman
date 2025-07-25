@@ -11,6 +11,7 @@
   "item.mob-talisman.cow_talisman": "Cow Talisman",
   "item.mob-talisman.creeper_talisman": "Creeper Talisman",
   "item.mob-talisman.dolphin_talisman": "Dolphin Talisman",
+  "item.mob-talisman.donkey_talisman": "Donkey Talisman",
   "item.mob-talisman.drowned_talisman": "Drowned Talisman",
   "item.mob-talisman.elder_guardian_talisman": "Elder Guardian Talisman",
   "item.mob-talisman.ender_dragon_talisman": "Ender Dragon Talisman",
@@ -76,7 +77,8 @@
   "tooltip.mob-talisman.glow_squid_talisman.items": "Every item now §bglows§r",
   "tooltip.mob-talisman.glow_squid_talisman.entities": "Every entity now §bglows§r §7(including you)§r",
 
-  "tooltip.mob-talisman.sheep_talisman": "Get a §4r§ca§6n§ed§ao§2m §bw§9o§1o§5l§r Block",
+  "tooltip.mob-talisman.sheep_talisman.prefix": "Have a ",
+  "tooltip.mob-talisman.sheep_talisman.suffix": "§e% chance§r every second of §aeating grass§r §7(completely restores your hunger bar)§r",
 
   "tooltip.mob-talisman.breeze_talisman.prefix": "When pressing ",
   "tooltip.mob-talisman.breeze_talisman.suffix": ", get a §9windcharge boost§r",
@@ -157,6 +159,9 @@
 
   "tooltip.mob-talisman.endermite_talisman": "Be able to open §2Enderchests§r by right clicking them in your hotbar",
 
+  "tooltip.mob-talisman.donkey_talisman.prefix": "When pressing ",
+  "tooltip.mob-talisman.donkey_talisman.suffix": ", open a §6backpack§r",
+
 
   "message.mob-talisman.enderman_talisman.position.saved": "§6Position got saved. Unequip your Talisman to get teleported",
   "message.mob-talisman.enderman_talisman.teleported": "§2Teleported you to your saved position",
@@ -198,10 +203,6 @@
   "tooltip.mob-talisman.pig_talisman.cooldown.min": "§7Cooldown: %smin",
   "tooltip.mob-talisman.pig_talisman.cooldown.min_sec": "§7Cooldown: %smin %ss",
 
-  "tooltip.mob-talisman.sheep_talisman.cooldown.sec": "§7Cooldown: %ss",
-  "tooltip.mob-talisman.sheep_talisman.cooldown.min": "§7Cooldown: %smin",
-  "tooltip.mob-talisman.sheep_talisman.cooldown.min_sec": "§7Cooldown: %smin %ss",
-
   "tooltip.mob-talisman.wither_talisman.cooldown.sec": "§7Cooldown: %ss",
   "tooltip.mob-talisman.wither_talisman.cooldown.min": "§7Cooldown: %smin",
   "tooltip.mob-talisman.wither_talisman.cooldown.min_sec": "§7Cooldown: %smin %ss",
@@ -219,6 +220,8 @@
 
   "message.mob-talisman.skeleton_talisman.teleported": "§2Teleported you to your death location",
   "message.mob-talisman.skeleton_talisman.teleported_error": "§4In order to teleport to your death location, you first need to die",
+
+  "container.mob-talisman.backpack": "Backpack",
 
 
   "itemgroup.mob_talisman.mob_talisman_items": "Mob Talisman",
@@ -276,6 +279,7 @@
   "text.config.mob-talisman.option.dropchanceForCowTalisman": "Cow Talisman",
   "text.config.mob-talisman.option.dropchanceForCreeperTalisman": "Creeper Talisman",
   "text.config.mob-talisman.option.dropchanceForDolphinTalisman": "Dolphin Talisman",
+  "text.config.mob-talisman.option.dropchanceForDonkeyTalisman": "Donkey Talisman",
   "text.config.mob-talisman.option.dropchanceForDrownedTalisman": "Drowned Talisman",
   "text.config.mob-talisman.option.dropchanceForElderGuardianTalisman": "Elder Guardian Talisman",
   "text.config.mob-talisman.option.dropchanceForEnderDragonTalisman": "Ender Dragon Talisman",
@@ -328,6 +332,8 @@
   "text.config.mob-talisman.option.maxCooldownForPhantom": "The max. cooldown for repairing an item from Phantom Talisman",
   "text.config.mob-talisman.option.flySpeedForBatTalisman": "The fly speed when using Bat Talisman (5% = creative flight)",
   "text.config.mob-talisman.option.dashStrengthForCamelTalisman": "The dash strength when using Camel Talisman",
+  "text.config.mob-talisman.option.backpackRowsForDonkeyTalisman": "The rows for the Donkey Talisman backpack (1-6)",
+  "text.config.mob-talisman.option.eatingGrassChanceForSheepTalisman": "The chance that the player eats grass when using Sheep Talisman",
   "text.config.mob-talisman.option.jumpForWallClimbing": "Only climb on walls when jumped using Spider Talisman",
   "text.config.mob-talisman.option.windchargeInAir": "Windcharge ability can also be used in air using Breeze Talisman",
   "text.config.mob-talisman.option.nonDestructiveFireballs": "Fireballs don't destroy blocks using Ghast Talisman",
@@ -344,7 +350,6 @@
   "text.config.mob-talisman.option.cooldownForIronGolemTalisman": "Cooldown for Iron Golem Talisman",
   "text.config.mob-talisman.option.cooldownForParrotTalisman": "Cooldown for Parrot Talisman",
   "text.config.mob-talisman.option.cooldownForPigTalisman": "Cooldown for Pig Talisman",
-  "text.config.mob-talisman.option.cooldownForSheepTalisman": "Cooldown for Sheep Talisman",
   "text.config.mob-talisman.option.cooldownForWitchTalisman": "Cooldown for Witch Talisman",
   "text.config.mob-talisman.option.cooldownForWitherTalisman": "Cooldown for Wither Talisman"
 }

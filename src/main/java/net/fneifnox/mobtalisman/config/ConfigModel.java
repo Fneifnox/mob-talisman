@@ -36,6 +36,8 @@ public class ConfigModel {
     public float dropchanceForCreeperTalisman = 0.25f;
     @Comment("Dolphin Talisman - Default: 1.5%")
     public float dropchanceForDolphinTalisman = 1.5f;
+    @Comment("Donkey Talisman - Default: 0.5%")
+    public float dropchanceForDonkeyTalisman = 0.5f;
     @Comment("Drowned Talisman - Default: 0.5%")
     public float dropchanceForDrownedTalisman = 0.5f;
     @Comment("Elder Guardian Talisman - Default: 1%")
@@ -141,6 +143,10 @@ public class ConfigModel {
     public float flySpeedForBatTalisman = 2f;
     @Comment("The dash strength when using Camel Talisman - Default: 1.5")
     public float dashStrengthForCamelTalisman = 1.5f;
+    @Comment("The rows for the Donkey Talisman backpack (1-6) - Default: 1")
+    public int backpackRowsForDonkeyTalisman = 1;
+    @Comment("The chance that the player eats grass when using Sheep Talisman - Default: 6%")
+    public float eatingGrassChanceForSheepTalisman = 6f;
     @Comment("Only climb on walls when jumped using Spider Talisman - Default: false")
     public boolean jumpForWallClimbing = false;
     @Comment("Windcharge ability can also be used in air using Breeze Talisman (will still give you fall damage when used in air) - Default: true")
@@ -173,8 +179,6 @@ public class ConfigModel {
     public int cooldownForParrotTalisman = 60;
     @Comment("Cooldown for Pig Talisman - Default: 60s")
     public int cooldownForPigTalisman = 60;
-    @Comment("Cooldown for Sheep Talisman - Default: 60s")
-    public int cooldownForSheepTalisman = 60;
     @Comment("Cooldown for Witch Talisman - Default: 120s")
     public int cooldownForWitchTalisman = 120;
     @Comment("Cooldown for Wither Talisman - Default: 1800s / 30min")

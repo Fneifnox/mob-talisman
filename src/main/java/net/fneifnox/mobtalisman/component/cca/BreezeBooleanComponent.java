@@ -25,7 +25,6 @@ public class BreezeBooleanComponent implements BooleanComponent, AutoSyncedCompo
     public void setValue(boolean value) {
         this.value = value;
         MyComponents.BREEZE_TALISMAN_ABILITY_READY.sync(this.provider);
-
     }
 
     @Override

@@ -11,6 +11,7 @@
   "item.mob-talisman.cow_talisman": "Kuh Talisman",
   "item.mob-talisman.creeper_talisman": "Creeper Talisman",
   "item.mob-talisman.dolphin_talisman": "Delfin Talisman",
+  "item.mob-talisman.donkey_talisman": "Esel Talisman",
   "item.mob-talisman.drowned_talisman": "Ertrunkenen Talisman",
   "item.mob-talisman.elder_guardian_talisman": "Großwächter Talisman",
   "item.mob-talisman.ender_dragon_talisman": "Enderdrachen Talisman",
@@ -76,7 +77,8 @@
   "tooltip.mob-talisman.glow_squid_talisman.items": "Jedes Item §bleuchtet§r jetzt",
   "tooltip.mob-talisman.glow_squid_talisman.entities": "Jedes Entity §bleuchtet§r jetzt §7(einschließlich dir)§r",
 
-  "tooltip.mob-talisman.sheep_talisman": "Bekomme einen §4z§cu§6f§eä§al§2l§bi§9g§1e§5n§r §4W§co§6l§el§ab§2l§bo§9c§1k§r",
+  "tooltip.mob-talisman.sheep_talisman.prefix": "Habe eine ",
+  "tooltip.mob-talisman.sheep_talisman.suffix": "§e% Chance§r jede Sekunde §aGras zu essen§r §7(stellt deine komplette Hunger Leiste wieder her)§r",
 
   "tooltip.mob-talisman.breeze_talisman.prefix": "Wenn ",
   "tooltip.mob-talisman.breeze_talisman.suffix": " gedrückt wird, erhältst du einen §9Windkugel Boost§r",
@@ -157,6 +159,9 @@
 
   "tooltip.mob-talisman.endermite_talisman": "Erlaubt es dir §2Endertruhen§r in deiner Hotbar mit einem Rechtsklick zu öffnen",
 
+  "tooltip.mob-talisman.donkey_talisman.prefix": "Wenn ",
+  "tooltip.mob-talisman.donkey_talisman.suffix": " gedrückt wird, öffne einen §6Rucksack§r",
+
 
   "message.mob-talisman.enderman_talisman.position.saved": "§6Position gespeichert. Lege den Talisman ab um teleportiert zu werden",
   "message.mob-talisman.enderman_talisman.teleported": "§2Hat dich zu deiner gespeicherten Position teleportiert",
@@ -198,10 +203,6 @@
   "tooltip.mob-talisman.pig_talisman.cooldown.min": "§7Cooldown: %smin",
   "tooltip.mob-talisman.pig_talisman.cooldown.min_sec": "§7Cooldown: %smin %ss",
 
-  "tooltip.mob-talisman.sheep_talisman.cooldown.sec": "§7Cooldown: %ss",
-  "tooltip.mob-talisman.sheep_talisman.cooldown.min": "§7Cooldown: %smin",
-  "tooltip.mob-talisman.sheep_talisman.cooldown.min_sec": "§7Cooldown: %smin %ss",
-
   "tooltip.mob-talisman.wither_talisman.cooldown.sec": "§7Cooldown: %ss",
   "tooltip.mob-talisman.wither_talisman.cooldown.min": "§7Cooldown: %smin",
   "tooltip.mob-talisman.wither_talisman.cooldown.min_sec": "§7Cooldown: %smin %ss",
@@ -219,6 +220,8 @@
 
   "message.mob-talisman.skeleton_talisman.teleported": "§2Hat dich zu deinem Sterbeort teleportiert",
   "message.mob-talisman.skeleton_talisman.teleported_error": "§4Damit du dich zu deinem Sterbeort teleportieren kannst, musst du erst sterben",
+
+  "container.mob-talisman.backpack": "Rucksack",
 
 
   "itemgroup.mob_talisman.mob_talisman_items": "Mob Talisman",
@@ -276,6 +279,7 @@
   "text.config.mob-talisman.option.dropchanceForCowTalisman": "Kuh Talisman",
   "text.config.mob-talisman.option.dropchanceForCreeperTalisman": "Creeper Talisman",
   "text.config.mob-talisman.option.dropchanceForDolphinTalisman": "Delfin Talisman",
+  "text.config.mob-talisman.option.dropchanceForDonkeyTalisman": "Esel Talisman",
   "text.config.mob-talisman.option.dropchanceForDrownedTalisman": "Ertrunkenen Talisman",
   "text.config.mob-talisman.option.dropchanceForElderGuardianTalisman": "Großwächter Talisman",
   "text.config.mob-talisman.option.dropchanceForEnderDragonTalisman": "Enderdrachen Talisman",
@@ -328,6 +332,8 @@
   "text.config.mob-talisman.option.maxCooldownForPhantom": "Der max. Cooldown für das Reparieren eines Items mit dem Phantom Talisman",
   "text.config.mob-talisman.option.flySpeedForBatTalisman": "Die Fluggeschwindigkeit des Fledermaus Talisman (5% = Kreativflug)",
   "text.config.mob-talisman.option.dashStrengthForCamelTalisman": "Die Dashstärke des Dromedar Talisman",
+  "text.config.mob-talisman.option.backpackRowsForDonkeyTalisman": "Die Reihen für den Esel Talisman Rucksack (1-6)",
+  "text.config.mob-talisman.option.eatingGrassChanceForSheepTalisman": "Die Chance, dass der Spieler Gras isst mit dem Schaf Talisman",
   "text.config.mob-talisman.option.jumpForWallClimbing": "Klettere nur an Wänden wenn du springst mit dem Spinnen Talisman",
   "text.config.mob-talisman.option.windchargeInAir": "Die Windkugel Fähigkeit kann ebenfalls in der Luft verwendet werden",
   "text.config.mob-talisman.option.nonDestructiveFireballs": "Feuerbälle vom Ghast Talisman zerstören keine Blöcke mehr",
@@ -344,7 +350,6 @@
   "text.config.mob-talisman.option.cooldownForIronGolemTalisman": "Der Cooldown vom Eisengolem Talisman",
   "text.config.mob-talisman.option.cooldownForParrotTalisman": "Der Cooldown vom Papagei Talisman",
   "text.config.mob-talisman.option.cooldownForPigTalisman": "Der Cooldown vom Schwein Talisman",
-  "text.config.mob-talisman.option.cooldownForSheepTalisman": "Der Cooldown vom Schaf Talisman",
   "text.config.mob-talisman.option.cooldownForWitchTalisman": "Der Cooldown vom Hexen Talisman",
   "text.config.mob-talisman.option.cooldownForWitherTalisman": "Der Cooldown vom Wither Talisman"
 }

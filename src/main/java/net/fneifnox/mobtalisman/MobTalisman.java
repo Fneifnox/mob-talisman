@@ -8,10 +8,7 @@ import net.fneifnox.mobtalisman.config.MobT;
 import net.fneifnox.mobtalisman.item.ModItemGroups;
 import net.fneifnox.mobtalisman.item.ModItems;
 import net.fneifnox.mobtalisman.networking.ModMessages;
-import net.fneifnox.mobtalisman.networking.packet.BreezeC2SPacket;
-import net.fneifnox.mobtalisman.networking.packet.CamelC2SPacket;
-import net.fneifnox.mobtalisman.networking.packet.GhastC2SPacket;
-import net.fneifnox.mobtalisman.networking.packet.IronGolemC2SPacket;
+import net.fneifnox.mobtalisman.networking.packet.*;
 import net.fneifnox.mobtalisman.util.ModLootTableModifiers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +28,7 @@ public class MobTalisman implements ModInitializer {
 		PayloadTypeRegistry.playC2S().register(GhastC2SPacket.ID, GhastC2SPacket.CODEC);
 		PayloadTypeRegistry.playC2S().register(CamelC2SPacket.ID, CamelC2SPacket.CODEC);
 		PayloadTypeRegistry.playC2S().register(IronGolemC2SPacket.ID, IronGolemC2SPacket.CODEC);
+		PayloadTypeRegistry.playC2S().register(DonkeyC2SPacket.ID, DonkeyC2SPacket.CODEC);
 		ModMessages.registerC2SPackets();
 
 		CONFIG.load();

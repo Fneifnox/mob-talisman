@@ -47,9 +47,6 @@ public class ModDataComponentTypes {
     public static final ComponentType<Integer> TICK_COUNTER_PIG =
             register("tick_counter_pig", builder -> builder.codec(Codec.INT));
 
-    public static final ComponentType<Integer> TICK_COUNTER_SHEEP =
-            register("tick_counter_sheep", builder -> builder.codec(Codec.INT));
-
     public static final ComponentType<Integer> TICK_COUNTER_WITCH =
             register("tick_counter_witch", builder -> builder.codec(Codec.INT));
 
