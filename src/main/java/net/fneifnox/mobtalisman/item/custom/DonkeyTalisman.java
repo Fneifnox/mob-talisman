@@ -20,7 +20,6 @@ import java.util.*;
 
 import static net.fneifnox.mobtalisman.MobTalisman.CONFIG;
 import static net.fneifnox.mobtalisman.component.cca.MyComponents.DONKEY_TALISMAN_ABILITY_READY;
-import static net.fneifnox.mobtalisman.component.cca.MyComponents.HAS_SPIDER_TALISMAN;
 
 public class DonkeyTalisman extends AccessoryItem {
 
@@ -33,20 +32,6 @@ public class DonkeyTalisman extends AccessoryItem {
     @Override
     public void tick(ItemStack stack, SlotReference reference) {
         if (!reference.entity().getWorld().isClient()) {
-
-            UseItemCallback.EVENT.register((player, world, hand) -> {
-                ItemStack enderStack = player.getStackInHand(hand);
-
-                if (enderStack.getItem() == Items.ENDER_CHEST) {
-                    if (!world.isClient) {
-                        player.openHandledScreen(new EnderChestScreenHandler(player));
-                    }
-                    return TypedActionResult.success(enderStack);
-                }
-
-                return TypedActionResult.pass(enderStack);
-            });
-
             UUID playerId = reference.entity().getUuid();
             equippedPlayers.put(playerId, true);
         }

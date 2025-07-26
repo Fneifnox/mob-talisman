@@ -9,8 +9,12 @@ import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.math.Vec3d;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 import static net.fneifnox.mobtalisman.MobTalisman.CONFIG;
 
@@ -20,10 +24,22 @@ public class AxolotlTalisman extends AccessoryItem {
         super(properties);
     }
 
+    private static final Map<UUID, Vec3d> lastPositions = new HashMap<>();
+
     @Override
     public void tick(ItemStack stack, SlotReference reference) {
         if (!(reference.entity() instanceof ServerPlayerEntity player)) return;
-        player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, -1, 0, true, false, true));
+        Vec3d currentPos = player.getPos();
+        Vec3d lastPos = lastPositions.get(player.getUuid());
+
+        if (currentPos.equals(lastPos)) {
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, -1, 2, true, false, true));
+        }
+        else {
+            player.removeStatusEffect(StatusEffects.REGENERATION);
+        }
+
+        lastPositions.put(player.getUuid(), currentPos);
     }
 
     @Override

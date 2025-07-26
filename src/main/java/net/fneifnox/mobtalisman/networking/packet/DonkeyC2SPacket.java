@@ -15,6 +15,7 @@ import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -72,6 +73,8 @@ public record DonkeyC2SPacket() implements CustomPayload {
                     return new DonkeyBackpackScreenHandler(syncId, playerInventory, inventory);
                 }
             });
+            player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(),
+                    SoundEvents.BLOCK_CHEST_OPEN, player.getSoundCategory(), 1.0F, 1.0F);
             PiglinBrain.onGuardedBlockInteracted(player, true);
         }
     }

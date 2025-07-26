@@ -4,10 +4,13 @@ import io.wispforest.accessories.api.AccessoryItem;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fneifnox.mobtalisman.util.EnderChestScreenHandler;
+import net.fneifnox.mobtalisman.util.EnderChestScreenHandlerFactory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.TypedActionResult;
@@ -35,8 +38,11 @@ public class EndermiteTalisman extends AccessoryItem {
                 ItemStack enderStack = player.getStackInHand(hand);
 
                 if (enderStack.getItem() == Items.ENDER_CHEST) {
-                    if (!world.isClient) {
-                        player.openHandledScreen(new EnderChestScreenHandler(player));
+                    if (!world.isClient && playerHasEndermiteTalismanEquipped(player)) {
+                        player.openHandledScreen(new EnderChestScreenHandlerFactory(player));
+                        player.incrementStat(Stats.OPEN_ENDERCHEST);
+                        player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(),
+                                SoundEvents.BLOCK_ENDER_CHEST_OPEN, player.getSoundCategory(), 1.0F, 1.0F);
                     }
                     return TypedActionResult.success(enderStack);
                 }
