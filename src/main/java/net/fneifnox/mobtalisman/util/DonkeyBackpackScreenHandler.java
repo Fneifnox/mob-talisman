@@ -8,6 +8,7 @@ import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.collection.DefaultedList;
 
 import static net.fneifnox.mobtalisman.MobTalisman.CONFIG;
@@ -47,6 +48,8 @@ public class DonkeyBackpackScreenHandler extends GenericContainerScreenHandler {
     @Override
     public void onClosed(PlayerEntity player) {
         super.onClosed(player);
+        player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(),
+                SoundEvents.BLOCK_CHEST_CLOSE, player.getSoundCategory(), 1.0F, 1.0F);
         saveInventory(player);
     }
 

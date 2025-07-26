@@ -60,7 +60,8 @@
     "has_camel_talisman": { "trigger": "minecraft:inventory_changed", "conditions": { "items": [{ "items": ["mob-talisman:camel_talisman"] }] } },
     "has_creeper_talisman": { "trigger": "minecraft:inventory_changed", "conditions": { "items": [{ "items": ["mob-talisman:creeper_talisman"] }] } },
     "has_zombie_villager_talisman": { "trigger": "minecraft:inventory_changed", "conditions": { "items": [{ "items": ["mob-talisman:zombie_villager_talisman"] }] } },
-    "has_endermite_talisman": { "trigger": "minecraft:inventory_changed", "conditions": { "items": [{ "items": ["mob-talisman:endermite_talisman"] }] } }
+    "has_endermite_talisman": { "trigger": "minecraft:inventory_changed", "conditions": { "items": [{ "items": ["mob-talisman:endermite_talisman"] }] } },
+    "has_donkey_talisman": { "trigger": "minecraft:inventory_changed", "conditions": { "items": [{ "items": ["mob-talisman:donkey_talisman"] }] } }
   },
   "requirements": [
     ["has_horse_talisman"], ["has_bat_talisman"], ["has_iron_golem_talisman"], ["has_chicken_talisman"], ["has_rabbit_talisman"],
@@ -71,6 +72,7 @@
     ["has_wither_talisman"], ["has_allay_talisman"], ["has_silverfish_talisman"], ["has_pig_talisman"], ["has_villager_talisman"],
     ["has_piglin_talisman"], ["has_zombie_talisman"], ["has_skeleton_talisman"], ["has_blaze_talisman"], ["has_armadillo_talisman"],
     ["has_ender_dragon_talisman"], ["has_pufferfish_talisman"], ["has_spider_talisman"], ["has_axolotl_talisman"], ["has_enderman_talisman"],
-    ["has_ghast_talisman"], ["has_camel_talisman"], ["has_creeper_talisman"], ["has_zombie_villager_talisman"], ["has_endermite_talisman"]
+    ["has_ghast_talisman"], ["has_camel_talisman"], ["has_creeper_talisman"], ["has_zombie_villager_talisman"], ["has_endermite_talisman"],
+    ["has_donkey_talisman"]
   ]
 }

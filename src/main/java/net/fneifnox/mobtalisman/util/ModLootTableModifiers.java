@@ -26,6 +26,7 @@ public class ModLootTableModifiers {
     private static final Identifier COW_ID = Identifier.of("minecraft", "entities/cow");
     private static final Identifier CREEPER_ID = Identifier.of("minecraft", "entities/creeper");
     private static final Identifier DOLPHIN_ID = Identifier.of("minecraft", "entities/dolphin");
+    private static final Identifier DONKEY_ID = Identifier.of("minecraft", "entities/donkey");
     private static final Identifier DROWNED_ID = Identifier.of("minecraft", "entities/drowned");
     private static final Identifier ELDER_GUARDIAN_ID = Identifier.of("minecraft", "entities/elder_guardian");
     private static final Identifier ENDER_DRAGON_ID = Identifier.of("minecraft", "entities/ender_dragon");
@@ -178,6 +179,16 @@ public class ModLootTableModifiers {
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder((CONFIG.dropchanceForDolphinTalisman() / 100)))
                         .with(ItemEntry.builder(ModItems.DOLPHIN_TALISMAN))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
+
+                tableBuilder.pool(poolBuilder.build());
+            }
+
+            if (DONKEY_ID.equals(key.getValue())) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder((CONFIG.dropchanceForDonkeyTalisman() / 100)))
+                        .with(ItemEntry.builder(ModItems.DONKEY_TALISMAN))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
 
                 tableBuilder.pool(poolBuilder.build());

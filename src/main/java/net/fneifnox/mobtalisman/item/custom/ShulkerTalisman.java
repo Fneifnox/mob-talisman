@@ -9,6 +9,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.TypedActionResult;
@@ -36,8 +38,11 @@ public class ShulkerTalisman extends AccessoryItem {
                 ItemStack shulkerStack = player.getStackInHand(hand);
 
                 if (shulkerStack.getItem() instanceof BlockItem blockItem && blockItem.getBlock() instanceof ShulkerBoxBlock) {
-                    if (!world.isClient) {
+                    if (!world.isClient && playerHasShulkerTalismanEquipped(player)) {
                         ShulkerBoxScreenHandler.openShulkerBoxFromItem(player, shulkerStack);
+                        player.incrementStat(Stats.OPEN_SHULKER_BOX);
+                        player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(),
+                                SoundEvents.BLOCK_SHULKER_BOX_OPEN, player.getSoundCategory(), 1.0F, 1.0F);
                     }
                     return TypedActionResult.success(shulkerStack);
                 }

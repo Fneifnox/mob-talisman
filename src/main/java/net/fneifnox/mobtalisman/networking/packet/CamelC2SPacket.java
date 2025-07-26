@@ -5,6 +5,7 @@ import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 
@@ -47,6 +48,9 @@ public record CamelC2SPacket() implements CustomPayload {
             // Auf den Spieler anwenden
             player.addVelocity(dashVelocity.x, dashVelocity.y, dashVelocity.z);
             player.velocityModified = true;
+
+            player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(),
+                    SoundEvents.ENTITY_CAMEL_DASH, player.getSoundCategory(), 1.0F, 1.0F);
 
             CamelTalisman.setBooleanFalse(player);
             CamelTalisman.SetTickCountTrue(player);
