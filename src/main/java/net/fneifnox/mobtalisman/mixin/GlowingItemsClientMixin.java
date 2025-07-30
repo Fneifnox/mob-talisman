@@ -28,12 +28,12 @@ public class GlowingItemsClientMixin
         PlayerEntity localPlayer = client.player;
 
         if (localPlayer == null) return;
-        if (CONFIG.glowingEffectForEveryEntity()) {
+        if (CONFIG.glowSquidTalisman.glowingEffectForEveryEntity()) {
             if (entity instanceof Entity && GlowSquidTalisman.useBoolean(localPlayer)) {
                 cir.setReturnValue(true);
             }
         }
-        else if (!CONFIG.glowingEffectForEveryEntity()) {
+        else if (!CONFIG.glowSquidTalisman.glowingEffectForEveryEntity()) {
             if (entity instanceof ItemEntity && GlowSquidTalisman.useBoolean(localPlayer)) {
                 cir.setReturnValue(true);
             }

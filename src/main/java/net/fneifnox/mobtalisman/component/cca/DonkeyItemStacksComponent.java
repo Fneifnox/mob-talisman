@@ -14,7 +14,7 @@ import static net.minecraft.inventory.Inventories.readNbt;
 import static net.minecraft.inventory.Inventories.writeNbt;
 
 public class DonkeyItemStacksComponent implements ItemStacksComponent, AutoSyncedComponent {
-    private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(CONFIG.backpackRowsForDonkeyTalisman() * 9, ItemStack.EMPTY);
+    private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(CONFIG.donkeyTalisman.backpackRowsForDonkeyTalisman() * 9, ItemStack.EMPTY);
     private final Entity provider;
 
     public DonkeyItemStacksComponent(Entity provider) {

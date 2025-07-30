@@ -30,7 +30,7 @@ public class TadpoleTalisman extends AccessoryItem {
             if (attribute != null && attribute.getModifier(SCALE_ID) == null) {
                 reference.entity().getAttributeInstance(EntityAttributes.GENERIC_SCALE)
                         .addPersistentModifier(new EntityAttributeModifier(
-                                SCALE_ID, (0 + CONFIG.decreasedScaleForTadpoleTalisman()) / -100, EntityAttributeModifier.Operation.ADD_VALUE
+                                SCALE_ID, (0 + CONFIG.tadpoleTalisman.decreasedScaleForTadpoleTalisman()) / -100, EntityAttributeModifier.Operation.ADD_VALUE
                         ));
             }
         }
@@ -46,7 +46,7 @@ public class TadpoleTalisman extends AccessoryItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        float chance = CONFIG.decreasedScaleForTadpoleTalisman();
+        float chance = CONFIG.tadpoleTalisman.decreasedScaleForTadpoleTalisman();
         if (chance == (int) chance) {
             tooltip.add(Text.translatable("tooltip.mob-talisman.tadpole_talisman.prefix")
                     .append(Text.literal("-" + (int) chance).formatted(Formatting.DARK_AQUA))

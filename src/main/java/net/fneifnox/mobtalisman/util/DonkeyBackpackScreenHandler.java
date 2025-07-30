@@ -17,7 +17,7 @@ public class DonkeyBackpackScreenHandler extends GenericContainerScreenHandler {
     private final SimpleInventory inventory;
 
     public DonkeyBackpackScreenHandler(int syncId, PlayerInventory playerInventory, SimpleInventory inventory) {
-        super(getScreenHandlerTypeFor(CONFIG.backpackRowsForDonkeyTalisman()), syncId, playerInventory, inventory, getRowsFor(CONFIG.backpackRowsForDonkeyTalisman()));
+        super(getScreenHandlerTypeFor(CONFIG.donkeyTalisman.backpackRowsForDonkeyTalisman()), syncId, playerInventory, inventory, getRowsFor(CONFIG.donkeyTalisman.backpackRowsForDonkeyTalisman()));
         this.inventory = inventory;
     }
 

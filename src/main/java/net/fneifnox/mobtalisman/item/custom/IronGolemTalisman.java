@@ -37,16 +37,16 @@ public class IronGolemTalisman extends AccessoryItem {
         int ticks = tickCounter.getOrDefault(player.getUuid(), 0 + stack.getOrDefault(ModDataComponentTypes.TICK_COUNTER_IRON_GOLEM, 0)) + 1;
         stack.set(ModDataComponentTypes.TICK_COUNTER_IRON_GOLEM, ticks);
 
-        if (ticks >= (CONFIG.cooldownForIronGolemTalisman() * 20)) {
+        if (ticks >= (CONFIG.ironGolemTalisman.cooldownForIronGolemTalisman() * 20)) {
             setBooleanTrue(player);
         }
 
-        if (ticks >= (CONFIG.cooldownForIronGolemTalisman() * 20) && abilityReadyCooldownNowRuns.getOrDefault(player.getUuid(), true)) {
+        if (ticks >= (CONFIG.ironGolemTalisman.cooldownForIronGolemTalisman() * 20) && abilityReadyCooldownNowRuns.getOrDefault(player.getUuid(), true)) {
             abilityReadyCooldownNowRuns.put(player.getUuid(), false);
             abilityReady.put(player.getUuid(), true);
         }
 
-        if (abilityReady.getOrDefault(player.getUuid(), false) && CONFIG.cooldownForIronGolemTalisman() > 3) {
+        if (abilityReady.getOrDefault(player.getUuid(), false) && CONFIG.ironGolemTalisman.cooldownForIronGolemTalisman() > 3) {
             abilityReady.put(player.getUuid(), false);
             player.sendMessage(Text.translatable("message.mob-talisman.iron_golem_talisman.ability_ready"));
         }
@@ -90,10 +90,10 @@ public class IronGolemTalisman extends AccessoryItem {
         tooltip.add(Text.translatable("tooltip.mob-talisman.iron_golem_talisman.prefix")
                 .append(Text.literal("" + key).formatted(Formatting.GOLD))
                 .append(Text.translatable("tooltip.mob-talisman.iron_golem_talisman.suffix")
-                .append(Text.literal("" + CONFIG.absorptionHeartsForIronGolemTalisman() * 2).formatted(Formatting.RED))
+                .append(Text.literal("" + CONFIG.ironGolemTalisman.absorptionHeartsForIronGolemTalisman() * 2).formatted(Formatting.RED))
                 .append(Text.translatable("tooltip.mob-talisman.iron_golem_talisman.suffix2"))));
         int ticks = stack.getOrDefault(ModDataComponentTypes.TICK_COUNTER_IRON_GOLEM, 0);
-        int seconds = CONFIG.cooldownForIronGolemTalisman();
+        int seconds = CONFIG.ironGolemTalisman.cooldownForIronGolemTalisman();
         seconds -= ticks / 20;
         int minutes = seconds / 60;
         int secondsLeft = seconds % 60;

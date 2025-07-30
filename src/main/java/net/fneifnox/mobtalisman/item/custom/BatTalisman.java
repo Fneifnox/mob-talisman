@@ -24,7 +24,7 @@ public class BatTalisman extends AccessoryItem {
     public void tick(ItemStack stack, SlotReference reference) {
         if (!(reference.entity() instanceof ServerPlayerEntity player)) return;
         player.getAbilities().allowFlying = true;
-        player.getAbilities().setFlySpeed(CONFIG.flySpeedForBatTalisman() / 100);
+        player.getAbilities().setFlySpeed(CONFIG.batTalisman.flySpeedForBatTalisman() / 100);
         player.sendAbilitiesUpdate();
     }
 

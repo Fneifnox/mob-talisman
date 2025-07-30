@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "mob-talisman:ravager_talisman",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancements.mob-talisman.infinite_power.title"
+    },
+    "description": {
+      "translate": "advancements.mob-talisman.infinite_power.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "mob-talisman:custom/root",
+  "criteria": {
+    "combo_10": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -147,6 +147,12 @@ public class ModItems {
     public static Item DONKEY_TALISMAN = registerItem("donkey_talisman",
             new DonkeyTalisman(new Item.Settings().maxCount(1).rarity(Rarity.UNCOMMON)));
 
+    public static Item PIGLIN_BRUTE_TALISMAN = registerItem("piglin_brute_talisman",
+            new PiglinBruteTalisman(new Item.Settings().maxCount(1).rarity(Rarity.UNCOMMON)));
+
+    public static Item WITHER_SKELETON_TALISMAN = registerItem("wither_skeleton_talisman",
+            new WitherSkeletonTalisman(new Item.Settings().maxCount(1).rarity(Rarity.UNCOMMON)));
+
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(MobTalisman.MOD_ID, name), item);
     }

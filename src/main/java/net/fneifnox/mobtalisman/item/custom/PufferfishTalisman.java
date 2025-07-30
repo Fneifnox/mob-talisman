@@ -16,11 +16,11 @@ import static net.fneifnox.mobtalisman.MobTalisman.CONFIG;
 
 public class PufferfishTalisman extends AccessoryItem {
 
-    private static final Map<UUID, Boolean> equippedPlayers = new HashMap<>();
-
     public PufferfishTalisman(Settings properties) {
         super(properties);
     }
+
+    private static final Map<UUID, Boolean> equippedPlayers = new HashMap<>();
 
     @Override
     public void onEquip(ItemStack stack, SlotReference reference) {
@@ -44,7 +44,7 @@ public class PufferfishTalisman extends AccessoryItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        int duration = CONFIG.durationForPufferfishTalisman();
+        int duration = CONFIG.pufferfishTalisman.durationForPufferfishTalisman();
         tooltip.add(Text.translatable("tooltip.mob-talisman.pufferfish_talisman.prefix")
                 .append(Text.literal("" + duration).formatted(Formatting.YELLOW))
                 .append(Text.translatable("tooltip.mob-talisman.pufferfish_talisman.suffix")));

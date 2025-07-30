@@ -3,10 +3,11 @@
   "package": "net.fneifnox.mobtalisman.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "AxeCooldownMixin",
     "CreeperBrainMixin",
     "EvokerLootMixin",
+    "MobDeathMixin",
     "MobLootMixin",
-    "PiglinBrainMixin",
     "PlayerAttackEffectMixin",
     "PlayerClimbingMixin",
     "PlayerDamageMixin",
@@ -15,6 +16,7 @@
     "PlayerLavaMixin",
     "TalismanDropMixin",
     "VillagerTradingMixin",
+    "WitherSkeletonSkullMixin",
     "accessor.GoalSelectorAccessor"
   ],
   "client": [

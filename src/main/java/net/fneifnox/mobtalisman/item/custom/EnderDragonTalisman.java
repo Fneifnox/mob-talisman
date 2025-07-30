@@ -45,7 +45,7 @@ public class EnderDragonTalisman extends AccessoryItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        float chance = CONFIG.dropchanceForTalisman();
+        float chance = CONFIG.enderDragonTalisman.dropchanceForTalisman();
         if (chance == (int) chance) {
             tooltip.add(Text.translatable("tooltip.mob-talisman.ender_dragon_talisman.prefix")
                     .append(Text.literal("+" + (int) chance).formatted(Formatting.YELLOW))

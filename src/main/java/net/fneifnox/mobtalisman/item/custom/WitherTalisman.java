@@ -6,9 +6,12 @@ import net.fneifnox.mobtalisman.component.ModDataComponentTypes;
 import net.minecraft.advancement.AdvancementEntry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
@@ -32,7 +35,7 @@ public class WitherTalisman extends AccessoryItem {
         int ticks = tickCounter.getOrDefault(player.getUuid(), 0 + stack.getOrDefault(ModDataComponentTypes.TICK_COUNTER_WITHER, 0)) + 1;
         stack.set(ModDataComponentTypes.TICK_COUNTER_WITHER, ticks);
 
-        if (ticks >= (CONFIG.cooldownForWitherTalisman() * 20)) { // 36000 Ticks = 30 Minutes
+        if (ticks >= (CONFIG.witherTalisman.cooldownForWitherTalisman() * 20)) {
             ticks = 0;
             giveRandomItem(player);
         }
@@ -44,12 +47,25 @@ public class WitherTalisman extends AccessoryItem {
         List<Item> items = Registries.ITEM.stream().toList();
 
         Item randomItem = items.get(player.getRandom().nextInt(items.size()));
-        player.giveItemStack(new ItemStack(randomItem));
-        if (player instanceof ServerPlayerEntity serverPlayer) {
-            Identifier id = Identifier.of("mob-talisman", "custom/definitely_skill_based");
-            AdvancementEntry entry = Objects.requireNonNull(serverPlayer.getServer()).getAdvancementLoader().get(id);
-            serverPlayer.getAdvancementTracker().grantCriterion(entry, "got_item");
+        System.out.println("ITEM: " + randomItem);
+        while (CONFIG.witherTalisman.blacklistedItemsForWitherTalisman().contains(Registries.ITEM.getId(randomItem))) {
+            System.out.println("==============FILTER==============");
+            randomItem = items.get(player.getRandom().nextInt(items.size()));
+            System.out.println("===FILTER ITEM: " + randomItem);
         }
+        if (!CONFIG.witherTalisman.enableSpawnEggsForWitherTalisman()) {
+            while (randomItem instanceof SpawnEggItem) {
+                randomItem = items.get(player.getRandom().nextInt(items.size()));
+            }
+        }
+        player.giveItemStack(new ItemStack(randomItem));
+
+        player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(),
+                SoundEvents.ENTITY_ARROW_HIT_PLAYER, player.getSoundCategory(), 1.0F, 0.5F);
+
+        Identifier id = Identifier.of("mob-talisman", "custom/definitely_skill_based");
+        AdvancementEntry entry = Objects.requireNonNull(player.getServer()).getAdvancementLoader().get(id);
+        player.getAdvancementTracker().grantCriterion(entry, "got_item");
     }
 
     @Override
@@ -62,7 +78,7 @@ public class WitherTalisman extends AccessoryItem {
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.translatable("tooltip.mob-talisman.wither_talisman"));
         int ticks = stack.getOrDefault(ModDataComponentTypes.TICK_COUNTER_WITHER, 0);
-        int seconds = CONFIG.cooldownForWitherTalisman();
+        int seconds = CONFIG.witherTalisman.cooldownForWitherTalisman();
         seconds -= ticks / 20;
         int minutes = seconds / 60;
         int secondsLeft = seconds % 60;

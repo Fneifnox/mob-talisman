@@ -38,16 +38,16 @@ public class CamelTalisman extends AccessoryItem {
         int ticks = tickCounter.getOrDefault(player.getUuid(), 0 + stack.getOrDefault(ModDataComponentTypes.TICK_COUNTER_CAMEL, 0)) + 1;
         stack.set(ModDataComponentTypes.TICK_COUNTER_CAMEL, ticks);
 
-        if (ticks >= (CONFIG.cooldownForCamelTalisman() * 20)) {
+        if (ticks >= (CONFIG.camelTalisman.cooldownForCamelTalisman() * 20)) {
             setBooleanTrue(player);
         }
 
-        if (ticks >= (CONFIG.cooldownForCamelTalisman() * 20) && abilityReadyCooldownNowRuns.getOrDefault(player.getUuid(), true)) {
+        if (ticks >= (CONFIG.camelTalisman.cooldownForCamelTalisman() * 20) && abilityReadyCooldownNowRuns.getOrDefault(player.getUuid(), true)) {
             abilityReadyCooldownNowRuns.put(player.getUuid(), false);
             abilityReady.put(player.getUuid(), true);
         }
 
-        if (abilityReady.getOrDefault(player.getUuid(), false) && CONFIG.cooldownForCamelTalisman() > 3) {
+        if (abilityReady.getOrDefault(player.getUuid(), false) && CONFIG.camelTalisman.cooldownForCamelTalisman() > 3) {
             abilityReady.put(player.getUuid(), false);
             player.sendMessage(Text.translatable("message.mob-talisman.camel_talisman.ability_ready"));
         }
@@ -92,7 +92,7 @@ public class CamelTalisman extends AccessoryItem {
                 .append(Text.literal("" + key).formatted(Formatting.GOLD))
                 .append(Text.translatable("tooltip.mob-talisman.camel_talisman.suffix")));
         int ticks = stack.getOrDefault(ModDataComponentTypes.TICK_COUNTER_CAMEL, 0);
-        int seconds = CONFIG.cooldownForCamelTalisman();
+        int seconds = CONFIG.camelTalisman.cooldownForCamelTalisman();
         seconds -= ticks / 20;
         int minutes = seconds / 60;
         int secondsLeft = seconds % 60;

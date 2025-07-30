@@ -29,7 +29,7 @@ public class ElderGuardianTalisman extends AccessoryItem {
         int ticks = tickCounter.getOrDefault(player.getUuid(), 0 + stack.getOrDefault(ModDataComponentTypes.TICK_COUNTER_ELDER_GUARDIAN, 0)) + 1;
         stack.set(ModDataComponentTypes.TICK_COUNTER_ELDER_GUARDIAN, ticks);
 
-        if (ticks >= (CONFIG.cooldownForElderGuardianTalisman() * 20)) { // 12000 Ticks = 10 Minutes
+        if (ticks >= (CONFIG.elderGuardianTalisman.cooldownForElderGuardianTalisman() * 20)) { // 12000 Ticks = 10 Minutes
             ticks = 0;
             giveSponge(player);
         }
@@ -51,7 +51,7 @@ public class ElderGuardianTalisman extends AccessoryItem {
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.translatable("tooltip.mob-talisman.elder_guardian_talisman"));
         int ticks = stack.getOrDefault(ModDataComponentTypes.TICK_COUNTER_ELDER_GUARDIAN, 0);
-        int seconds = CONFIG.cooldownForElderGuardianTalisman();
+        int seconds = CONFIG.elderGuardianTalisman.cooldownForElderGuardianTalisman();
         seconds -= ticks / 20;
         int minutes = seconds / 60;
         int secondsLeft = seconds % 60;

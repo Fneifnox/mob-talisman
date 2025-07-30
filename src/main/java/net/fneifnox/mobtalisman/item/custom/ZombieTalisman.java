@@ -30,7 +30,7 @@ public class ZombieTalisman extends AccessoryItem {
             if (attribute != null && attribute.getModifier(DROPPED_EXPERIENCE_ID) == null) {
                 reference.entity().getAttributeInstance(AdditionalEntityAttributes.DROPPED_EXPERIENCE)
                         .addPersistentModifier(new EntityAttributeModifier(
-                                DROPPED_EXPERIENCE_ID, 100 / CONFIG.increasedXPForZombieTalisman(), EntityAttributeModifier.Operation.ADD_VALUE
+                                DROPPED_EXPERIENCE_ID, 100 / CONFIG.zombieTalisman.increasedXPForZombieTalisman(), EntityAttributeModifier.Operation.ADD_VALUE
                         ));
             }
         }
@@ -46,7 +46,7 @@ public class ZombieTalisman extends AccessoryItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        float chance = CONFIG.increasedXPForZombieTalisman();
+        float chance = CONFIG.zombieTalisman.increasedXPForZombieTalisman();
         if (chance == (int) chance) {
             tooltip.add(Text.translatable("tooltip.mob-talisman.zombie_talisman.prefix")
                     .append(Text.literal("+" + (int) chance).formatted(Formatting.GREEN))

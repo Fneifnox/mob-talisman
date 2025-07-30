@@ -5,6 +5,7 @@ import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.Vec3d;
@@ -41,6 +42,9 @@ public class SkeletonTalisman extends AccessoryItem {
     public static void teleportToSavedDeathPosition(ServerPlayerEntity player) {
         Vec3d position = SkeletonTalisman.getSavedDeathPosition(player);
         if (position != null) {
+            player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(),
+                    SoundEvents.ENTITY_SKELETON_STEP, player.getSoundCategory(), 1.0F, 1.0F);
+
             player.teleport(player.getServerWorld(), position.x, position.y, position.z, player.getYaw(), player.getPitch());
             player.sendMessage(Text.translatable("message.mob-talisman.skeleton_talisman.teleported"), false);
         }

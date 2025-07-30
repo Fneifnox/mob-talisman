@@ -42,6 +42,7 @@ public class ModItemGroups {
                         entries.add(ModItems.IRON_GOLEM_TALISMAN);
                         entries.add(ModItems.PARROT_TALISMAN);
                         entries.add(ModItems.PHANTOM_TALISMAN);
+                        entries.add(ModItems.PIGLIN_BRUTE_TALISMAN);
                         entries.add(ModItems.PIGLIN_TALISMAN);
                         entries.add(ModItems.PIG_TALISMAN);
                         entries.add(ModItems.PUFFERFISH_TALISMAN);
@@ -59,6 +60,7 @@ public class ModItemGroups {
                         entries.add(ModItems.VILLAGER_TALISMAN);
                         entries.add(ModItems.WARDEN_TALISMAN);
                         entries.add(ModItems.WITCH_TALISMAN);
+                        entries.add(ModItems.WITHER_SKELETON_TALISMAN);
                         entries.add(ModItems.WITHER_TALISMAN);
                         entries.add(ModItems.ZOMBIE_TALISMAN);
                         entries.add(ModItems.ZOMBIE_VILLAGER_TALISMAN);

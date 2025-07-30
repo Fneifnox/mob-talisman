@@ -30,7 +30,7 @@ public class DrownedTalisman extends AccessoryItem {
             if (attribute != null && attribute.getModifier(OXYGEN_BONUS_ID) == null) {
                 reference.entity().getAttributeInstance(EntityAttributes.GENERIC_OXYGEN_BONUS)
                         .addPersistentModifier(new EntityAttributeModifier(
-                                OXYGEN_BONUS_ID, (0 + CONFIG.increasedUnderwaterBreathingForDrownedTalisman()) / 100, EntityAttributeModifier.Operation.ADD_VALUE
+                                OXYGEN_BONUS_ID, (0 + CONFIG.drownedTalisman.increasedUnderwaterBreathingForDrownedTalisman()) / 100, EntityAttributeModifier.Operation.ADD_VALUE
                         ));
             }
         }
@@ -46,7 +46,7 @@ public class DrownedTalisman extends AccessoryItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        float chance = CONFIG.increasedUnderwaterBreathingForDrownedTalisman();
+        float chance = CONFIG.drownedTalisman.increasedUnderwaterBreathingForDrownedTalisman();
         if (chance == (int) chance) {
             tooltip.add(Text.translatable("tooltip.mob-talisman.drowned_talisman.prefix")
                     .append(Text.literal("+" + (int) chance).formatted(Formatting.DARK_AQUA))

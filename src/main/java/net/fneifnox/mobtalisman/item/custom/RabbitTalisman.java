@@ -30,7 +30,7 @@ public class RabbitTalisman extends AccessoryItem {
             if (attribute != null && attribute.getModifier(JUMP_STRENGTH_ID) == null) {
                 reference.entity().getAttributeInstance(EntityAttributes.GENERIC_JUMP_STRENGTH)
                         .addPersistentModifier(new EntityAttributeModifier(
-                                JUMP_STRENGTH_ID, (0 + CONFIG.increasedJumpHeightForRabbitTalisman()) / 100, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL
+                                JUMP_STRENGTH_ID, (0 + CONFIG.rabbitTalisman.increasedJumpHeightForRabbitTalisman()) / 100, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL
                         ));
             }
         }
@@ -46,7 +46,7 @@ public class RabbitTalisman extends AccessoryItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        float chance = CONFIG.increasedJumpHeightForRabbitTalisman();
+        float chance = CONFIG.rabbitTalisman.increasedJumpHeightForRabbitTalisman();
         if (chance == (int) chance) {
             tooltip.add(Text.translatable("tooltip.mob-talisman.rabbit_talisman.prefix")
                     .append(Text.literal("+" + (int) chance).formatted(Formatting.DARK_GREEN))

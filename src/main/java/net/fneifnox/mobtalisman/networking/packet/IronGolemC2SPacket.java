@@ -33,8 +33,7 @@ public record IronGolemC2SPacket() implements CustomPayload {
     public void receive(ServerPlayerEntity player) {
 
         if (IronGolemTalisman.useBoolean(player)) {
-            System.out.println("TEST 1");
-            player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, -1, CONFIG.absorptionHeartsForIronGolemTalisman() - 1, false, false, false));
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, -1, CONFIG.ironGolemTalisman.absorptionHeartsForIronGolemTalisman() - 1, false, false, false));
 
             player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(),
                     SoundEvents.BLOCK_BEACON_POWER_SELECT, player.getSoundCategory(), 1.0F, 1.0F);

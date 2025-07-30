@@ -40,6 +40,7 @@ public class ModLootTableModifiers {
     private static final Identifier IRON_GOLEM_ID = Identifier.of("minecraft", "entities/iron_golem");
     private static final Identifier PARROT_ID = Identifier.of("minecraft", "entities/parrot");
     private static final Identifier PHANTOM_ID = Identifier.of("minecraft", "entities/phantom");
+    private static final Identifier PIGLIN_BRUTE_ID = Identifier.of("minecraft", "entities/piglin_brute");
     private static final Identifier PIGLIN_ID = Identifier.of("minecraft", "entities/piglin");
     private static final Identifier PIG_ID = Identifier.of("minecraft", "entities/pig");
     private static final Identifier PUFFERFISH_ID = Identifier.of("minecraft", "entities/pufferfish");
@@ -57,6 +58,7 @@ public class ModLootTableModifiers {
     private static final Identifier VILLAGER_ID = Identifier.of("minecraft", "entities/villager");
     private static final Identifier WARDEN_ID = Identifier.of("minecraft", "entities/warden");
     private static final Identifier WITCH_ID = Identifier.of("minecraft", "entities/witch");
+    private static final Identifier WITHER_SKELETON_ID = Identifier.of("minecraft", "entities/wither_skeleton");
     private static final Identifier WITHER_ID = Identifier.of("minecraft", "entities/wither");
     private static final Identifier ZOMBIE_ID = Identifier.of("minecraft", "entities/zombie");
     private static final Identifier ZOMBIE_VILLAGER_ID = Identifier.of("minecraft", "entities/zombie_villager");
@@ -324,6 +326,16 @@ public class ModLootTableModifiers {
                 tableBuilder.pool(poolBuilder.build());
             }
 
+            if (PIGLIN_BRUTE_ID.equals(key.getValue())) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder((CONFIG.dropchanceForPiglinBruteTalisman() / 100)))
+                        .with(ItemEntry.builder(ModItems.PIGLIN_BRUTE_TALISMAN))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
+
+                tableBuilder.pool(poolBuilder.build());
+            }
+
             if (PIGLIN_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
@@ -489,6 +501,16 @@ public class ModLootTableModifiers {
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder((CONFIG.dropchanceForWitchTalisman() / 100)))
                         .with(ItemEntry.builder(ModItems.WITCH_TALISMAN))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
+
+                tableBuilder.pool(poolBuilder.build());
+            }
+
+            if (WITHER_SKELETON_ID.equals(key.getValue())) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder((CONFIG.dropchanceForWitherSkeletonTalisman() / 100)))
+                        .with(ItemEntry.builder(ModItems.WITHER_SKELETON_TALISMAN))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
 
                 tableBuilder.pool(poolBuilder.build());

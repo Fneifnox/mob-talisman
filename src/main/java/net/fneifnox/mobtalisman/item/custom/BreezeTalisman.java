@@ -33,16 +33,16 @@ public class BreezeTalisman extends AccessoryItem {
         int ticks = tickCounter.getOrDefault(player.getUuid(), 0 + stack.getOrDefault(ModDataComponentTypes.TICK_COUNTER_BREEZE, 0)) + 1;
         stack.set(ModDataComponentTypes.TICK_COUNTER_BREEZE, ticks);
 
-        if (ticks >= (CONFIG.cooldownForBreezeTalisman() * 20)) {
+        if (ticks >= (CONFIG.breezeTalisman.cooldownForBreezeTalisman() * 20)) {
             setBooleanTrue(player);
         }
 
-        if (ticks >= (CONFIG.cooldownForBreezeTalisman() * 20) && abilityReadyCooldownNowRuns.getOrDefault(player.getUuid(), true)) {
+        if (ticks >= (CONFIG.breezeTalisman.cooldownForBreezeTalisman() * 20) && abilityReadyCooldownNowRuns.getOrDefault(player.getUuid(), true)) {
             abilityReadyCooldownNowRuns.put(player.getUuid(), false);
             abilityReady.put(player.getUuid(), true);
         }
 
-        if (abilityReady.getOrDefault(player.getUuid(), false) && CONFIG.cooldownForBreezeTalisman() > 3) {
+        if (abilityReady.getOrDefault(player.getUuid(), false) && CONFIG.breezeTalisman.cooldownForBreezeTalisman() > 3) {
             abilityReady.put(player.getUuid(), false);
             player.sendMessage(Text.translatable("message.mob-talisman.breeze_talisman.ability_ready"));
         }
@@ -87,7 +87,7 @@ public class BreezeTalisman extends AccessoryItem {
                 .append(Text.literal("" + key).formatted(Formatting.GOLD))
                 .append(Text.translatable("tooltip.mob-talisman.breeze_talisman.suffix")));
         int ticks = stack.getOrDefault(ModDataComponentTypes.TICK_COUNTER_BREEZE, 0);
-        int seconds = CONFIG.cooldownForBreezeTalisman();
+        int seconds = CONFIG.breezeTalisman.cooldownForBreezeTalisman();
         seconds -= ticks / 20;
         int minutes = seconds / 60;
         int secondsLeft = seconds % 60;
