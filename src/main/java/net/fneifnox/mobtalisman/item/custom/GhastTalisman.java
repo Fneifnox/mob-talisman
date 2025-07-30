@@ -33,16 +33,16 @@ public class GhastTalisman extends AccessoryItem {
         int ticks = tickCounter.getOrDefault(player.getUuid(), 0 + stack.getOrDefault(ModDataComponentTypes.TICK_COUNTER_GHAST, 0)) + 1;
         stack.set(ModDataComponentTypes.TICK_COUNTER_GHAST, ticks);
 
-        if (ticks >= (CONFIG.cooldownForGhastTalisman() * 20)) {
+        if (ticks >= (CONFIG.ghastTalisman.cooldownForGhastTalisman() * 20)) {
             setBooleanTrue(player);
         }
 
-        if (ticks >= (CONFIG.cooldownForGhastTalisman() * 20) && abilityReadyCooldownNowRuns.getOrDefault(player.getUuid(), true)) {
+        if (ticks >= (CONFIG.ghastTalisman.cooldownForGhastTalisman() * 20) && abilityReadyCooldownNowRuns.getOrDefault(player.getUuid(), true)) {
             abilityReadyCooldownNowRuns.put(player.getUuid(), false);
             abilityReady.put(player.getUuid(), true);
         }
 
-        if (abilityReady.getOrDefault(player.getUuid(), false) && CONFIG.cooldownForGhastTalisman() > 3) {
+        if (abilityReady.getOrDefault(player.getUuid(), false) && CONFIG.ghastTalisman.cooldownForGhastTalisman() > 3) {
             abilityReady.put(player.getUuid(), false);
             player.sendMessage(Text.translatable("message.mob-talisman.ghast_talisman.ability_ready"));
         }
@@ -87,7 +87,7 @@ public class GhastTalisman extends AccessoryItem {
                 .append(Text.literal("" + key).formatted(Formatting.GOLD))
                 .append(Text.translatable("tooltip.mob-talisman.ghast_talisman.suffix")));
         int ticks = stack.getOrDefault(ModDataComponentTypes.TICK_COUNTER_GHAST, 0);
-        int seconds = CONFIG.cooldownForGhastTalisman();
+        int seconds = CONFIG.ghastTalisman.cooldownForGhastTalisman();
         seconds -= ticks / 20;
         int minutes = seconds / 60;
         int secondsLeft = seconds % 60;

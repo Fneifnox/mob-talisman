@@ -52,7 +52,7 @@ public record BreezeC2SPacket() implements CustomPayload {
             BreezeTalisman.setBooleanFalse(player);
             BreezeTalisman.SetTickCountTrue(player);
         }
-        else if (!player.isOnGround() && BreezeTalisman.useBoolean(player) && CONFIG.windchargeInAir()) {
+        else if (!player.isOnGround() && BreezeTalisman.useBoolean(player) && CONFIG.breezeTalisman.windchargeInAir()) {
             player.addVelocity(0, 1, 0);
             player.velocityModified = true;
 

@@ -30,7 +30,7 @@ public class WardenTalisman extends AccessoryItem {
             if (attribute != null && attribute.getModifier(MAX_HEALTH_ID) == null) {
                 reference.entity().getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH)
                         .addPersistentModifier(new EntityAttributeModifier(
-                                MAX_HEALTH_ID, 0 + CONFIG.increasedHeartsForWardenTalisman(), EntityAttributeModifier.Operation.ADD_VALUE
+                                MAX_HEALTH_ID, 0 + CONFIG.wardenTalisman.increasedHeartsForWardenTalisman(), EntityAttributeModifier.Operation.ADD_VALUE
                         ));
             }
         }
@@ -46,7 +46,7 @@ public class WardenTalisman extends AccessoryItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        float chance = CONFIG.increasedHeartsForWardenTalisman();
+        float chance = CONFIG.wardenTalisman.increasedHeartsForWardenTalisman();
         if (chance == (int) chance) {
             tooltip.add(Text.translatable("tooltip.mob-talisman.warden_talisman.prefix")
                     .append(Text.literal("+" + ((int) chance / 2)).formatted(Formatting.RED))

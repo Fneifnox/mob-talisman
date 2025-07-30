@@ -30,7 +30,7 @@ public class SilverfishTalisman extends AccessoryItem {
             if (attribute != null && attribute.getModifier(BLOCK_BREAK_SPEED_ID) == null) {
                 reference.entity().getAttributeInstance(EntityAttributes.PLAYER_BLOCK_BREAK_SPEED)
                         .addPersistentModifier(new EntityAttributeModifier(
-                                BLOCK_BREAK_SPEED_ID, (0 + CONFIG.increasedMiningSpeedForSilverfishTalisman()) / 100, EntityAttributeModifier.Operation.ADD_VALUE
+                                BLOCK_BREAK_SPEED_ID, (0 + CONFIG.silverfishTalisman.increasedMiningSpeedForSilverfishTalisman()) / 100, EntityAttributeModifier.Operation.ADD_VALUE
                         ));
             }
         }
@@ -46,7 +46,7 @@ public class SilverfishTalisman extends AccessoryItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        float chance = CONFIG.increasedMiningSpeedForSilverfishTalisman();
+        float chance = CONFIG.silverfishTalisman.increasedMiningSpeedForSilverfishTalisman();
         if (chance == (int) chance) {
             tooltip.add(Text.translatable("tooltip.mob-talisman.silverfish_talisman.prefix")
                     .append(Text.literal("+" + (int) chance).formatted(Formatting.DARK_PURPLE))

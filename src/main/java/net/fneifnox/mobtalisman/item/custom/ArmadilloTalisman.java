@@ -37,7 +37,7 @@ public class ArmadilloTalisman extends AccessoryItem {
         equippedPlayers.put(player.getUuid(), stack.getOrDefault(ModDataComponentTypes.EQUIPPED_PLAYERS_ARMADILLO, false));
         stack.set(ModDataComponentTypes.RESISTANCE_GIVEN_ARMADILLO, resistanceGiven.getOrDefault(player.getUuid(), false));
 
-        if (ticks >= (CONFIG.cooldownForArmadilloTalisman() * 20)) {
+        if (ticks >= (CONFIG.armadilloTalisman.cooldownForArmadilloTalisman() * 20)) {
             stack.set(ModDataComponentTypes.ABILITY_USABLE_ARMADILLO, true);
         }
 
@@ -84,12 +84,12 @@ public class ArmadilloTalisman extends AccessoryItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        int duration = CONFIG.durationForArmadilloTalisman();
+        int duration = CONFIG.armadilloTalisman.durationForArmadilloTalisman();
         tooltip.add(Text.translatable("tooltip.mob-talisman.armadillo_talisman.prefix")
                 .append(Text.literal("" + duration).formatted(Formatting.YELLOW))
                 .append(Text.translatable("tooltip.mob-talisman.armadillo_talisman.suffix")));
         int ticks = stack.getOrDefault(ModDataComponentTypes.TICK_COUNTER_ARMADILLO, 0);
-        int seconds = CONFIG.cooldownForArmadilloTalisman();
+        int seconds = CONFIG.armadilloTalisman.cooldownForArmadilloTalisman();
         seconds -= ticks / 20;
         int minutes = seconds / 60;
         int secondsLeft = seconds % 60;

@@ -5,6 +5,7 @@ import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
@@ -27,11 +28,14 @@ public class PhantomTalisman extends AccessoryItem {
         for (ItemStack item : getAllRepairableItems(player)) {
             if (item.isDamaged()) {
                 Random random = new Random();
-                int requiredTicks = random.nextInt(20 * CONFIG.minCooldownForPhantom(), 20 * (CONFIG.maxCooldownForPhantom() + 1)); // Between 24 and 100 seconds
+                int requiredTicks = random.nextInt(20 * CONFIG.phantomTalisman.minCooldownForPhantom(), 20 * (CONFIG.phantomTalisman.maxCooldownForPhantom() + 1));
                 if (ticks >= requiredTicks) {
-                    int repairedDamage = random.nextInt(0 + CONFIG.minDurabilityForPhantom(), 1 + CONFIG.maxDurabilityForPhantom()); // Between 1 and 10 durability
+                    int repairedDamage = random.nextInt(0 + CONFIG.phantomTalisman.minDurabilityForPhantom(), 1 + CONFIG.phantomTalisman.maxDurabilityForPhantom());
                     item.setDamage(item.getDamage() - repairedDamage);
                     ticks = 0;
+
+                    player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(),
+                            SoundEvents.BLOCK_ANVIL_USE, player.getSoundCategory(), 0.025F, 1.0F);
                 }
             }
         }

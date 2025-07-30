@@ -42,22 +42,22 @@ public record DonkeyC2SPacket() implements CustomPayload {
 
         ItemStacksComponent container = MyComponents.DONKEY_ITEMSTACKS_INVENTORY.get(player);
 
-        SimpleInventory inventory = new SimpleInventory(CONFIG.backpackRowsForDonkeyTalisman() * 9);
+        SimpleInventory inventory = new SimpleInventory(CONFIG.donkeyTalisman.backpackRowsForDonkeyTalisman() * 9);
 
-        List<ItemStack> contents = new ArrayList<>(CONFIG.backpackRowsForDonkeyTalisman() * 9);
-        for (int i = 0; i < CONFIG.backpackRowsForDonkeyTalisman() * 9; i++) {
+        List<ItemStack> contents = new ArrayList<>(CONFIG.donkeyTalisman.backpackRowsForDonkeyTalisman() * 9);
+        for (int i = 0; i < CONFIG.donkeyTalisman.backpackRowsForDonkeyTalisman() * 9; i++) {
             contents.add(ItemStack.EMPTY);
         }
 
         int index = 0;
         for (Iterator<ItemStack> it = container.getValue().iterator(); it.hasNext(); ) {
             ItemStack item = it.next();
-            if (index >= CONFIG.backpackRowsForDonkeyTalisman() * 9) break;
+            if (index >= CONFIG.donkeyTalisman.backpackRowsForDonkeyTalisman() * 9) break;
             contents.set(index, item);
             index++;
         }
 
-        for (int i = 0; i < CONFIG.backpackRowsForDonkeyTalisman() * 9; i++) {
+        for (int i = 0; i < CONFIG.donkeyTalisman.backpackRowsForDonkeyTalisman() * 9; i++) {
             inventory.setStack(i, contents.get(i));
         }
 

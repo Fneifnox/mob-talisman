@@ -30,7 +30,7 @@ public class CatTalisman extends AccessoryItem {
             if (attribute != null && attribute.getModifier(MOVEMENT_SPEED_ID) == null) {
                 reference.entity().getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED)
                         .addPersistentModifier(new EntityAttributeModifier(
-                                MOVEMENT_SPEED_ID, (0 + CONFIG.increasedMovementSpeedForCatTalisman()) / 100, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL
+                                MOVEMENT_SPEED_ID, (0 + CONFIG.catTalisman.increasedMovementSpeedForCatTalisman()) / 100, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL
                         ));
             }
         }
@@ -46,7 +46,7 @@ public class CatTalisman extends AccessoryItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        float chance = CONFIG.increasedMovementSpeedForCatTalisman();
+        float chance = CONFIG.catTalisman.increasedMovementSpeedForCatTalisman();
         if (chance == (int) chance) {
             tooltip.add(Text.translatable("tooltip.mob-talisman.cat_talisman.prefix")
                     .append(Text.literal("+" + (int) chance).formatted(Formatting.AQUA))

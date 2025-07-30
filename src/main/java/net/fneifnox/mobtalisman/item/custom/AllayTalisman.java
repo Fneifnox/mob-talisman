@@ -32,7 +32,7 @@ public class AllayTalisman extends AccessoryItem {
             if (attribute != null && attribute.getModifier(COLLECTION_RANGE_ID) == null) {
                 reference.entity().getAttributeInstance(AdditionalEntityAttributes.COLLECTION_RANGE)
                         .addPersistentModifier(new EntityAttributeModifier(
-                                COLLECTION_RANGE_ID, (0 + CONFIG.increasedCollectionRangeForAllayTalisman()) / 100, EntityAttributeModifier.Operation.ADD_VALUE
+                                COLLECTION_RANGE_ID, (0 + CONFIG.allayTalisman.increasedCollectionRangeForAllayTalisman()) / 100, EntityAttributeModifier.Operation.ADD_VALUE
                         ));
             }
         }
@@ -48,7 +48,7 @@ public class AllayTalisman extends AccessoryItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        float chance = CONFIG.increasedCollectionRangeForAllayTalisman();
+        float chance = CONFIG.allayTalisman.increasedCollectionRangeForAllayTalisman();
         if (chance == (int) chance) {
             tooltip.add(Text.translatable("tooltip.mob-talisman.cat_talisman.prefix")
                     .append(Text.literal("+" + (int) chance).formatted(Formatting.GOLD))

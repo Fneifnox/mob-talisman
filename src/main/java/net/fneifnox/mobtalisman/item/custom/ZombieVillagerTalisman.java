@@ -48,7 +48,7 @@ public class ZombieVillagerTalisman extends AccessoryItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        float chance = CONFIG.discountForZombieVillagerTalisman();
+        float chance = CONFIG.zombieVillagerTalisman.discountForZombieVillagerTalisman();
         tooltip.add(Text.translatable("tooltip.mob-talisman.zombie_villager_talisman.prefix")
                 .append(Text.literal("" + (int) chance + "%").formatted(Formatting.GOLD))
                 .append(Text.translatable("tooltip.mob-talisman.zombie_villager_talisman.suffix")));

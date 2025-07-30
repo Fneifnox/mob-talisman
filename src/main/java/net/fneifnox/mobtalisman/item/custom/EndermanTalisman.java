@@ -9,6 +9,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
@@ -34,6 +35,8 @@ public class EndermanTalisman extends AccessoryItem {
             setVec3d(player, position);
             setBooleanTrue(player);
             player.sendMessage(Text.translatable("message.mob-talisman.enderman_talisman.position.saved"), false);
+            player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(),
+                    SoundEvents.BLOCK_AMETHYST_BLOCK_HIT, player.getSoundCategory(), 1.0F, 0.5F);
         }
     }
 
@@ -66,6 +69,9 @@ public class EndermanTalisman extends AccessoryItem {
     public static void teleportToSavedPosition(ServerPlayerEntity player) {
         Vec3d position = EndermanTalisman.useVec3d(player);
         if (position != null) {
+            player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(),
+                    SoundEvents.ENTITY_ENDERMAN_TELEPORT, player.getSoundCategory(), 1.0F, 1.0F);
+
             Identifier id = Identifier.of("mob-talisman", "custom/home_sweet_home");
             AdvancementEntry entry = Objects.requireNonNull(player.getServer()).getAdvancementLoader().get(id);
             player.getAdvancementTracker().grantCriterion(entry, "teleported");

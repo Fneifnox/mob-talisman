@@ -26,7 +26,7 @@ public class PlayerClimbingMixin {
         if (!(self instanceof PlayerEntity player)) return;
         if (!SpiderTalisman.useBoolean(player)) return;
 
-        if (!CONFIG.jumpForWallClimbing()) {
+        if (!CONFIG.spiderTalisman.jumpForWallClimbing()) {
             if (self.horizontalCollision) {
                 cir.setReturnValue(true);
                 if (player instanceof ServerPlayerEntity serverPlayer) {
@@ -37,7 +37,7 @@ public class PlayerClimbingMixin {
             }
         }
 
-        else if (CONFIG.jumpForWallClimbing()) {
+        else if (CONFIG.spiderTalisman.jumpForWallClimbing()) {
             if (self.horizontalCollision && !self.isOnGround()) {
                 cir.setReturnValue(true);
                 if (player instanceof ServerPlayerEntity serverPlayer) {

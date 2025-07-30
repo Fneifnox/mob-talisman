@@ -36,7 +36,7 @@ public class WitchTalisman extends AccessoryItem {
         stack.set(ModDataComponentTypes.TICK_COUNTER_WITCH, ticks);
         boolean usable = stack.getOrDefault(ModDataComponentTypes.ABILITY_USABLE_WITCH, false);
 
-        if (ticks >= (CONFIG.cooldownForWitchTalisman() * 20)) { // 3600 Ticks = 3 Minutes
+        if (ticks >= (CONFIG.witchTalisman.cooldownForWitchTalisman() * 20)) { // 3600 Ticks = 3 Minutes
             usable = true;
             stack.set(ModDataComponentTypes.ABILITY_USABLE_WITCH, usable);
         }
@@ -77,7 +77,7 @@ public class WitchTalisman extends AccessoryItem {
         tooltip.add(Text.translatable("tooltip.mob-talisman.witch_talisman"));
         int ticks = stack.getOrDefault(ModDataComponentTypes.TICK_COUNTER_WITCH, 0);
         boolean abilityUsable = stack.getOrDefault(ModDataComponentTypes.ABILITY_USABLE_WITCH, false);
-        int seconds = CONFIG.cooldownForWitchTalisman();
+        int seconds = CONFIG.witchTalisman.cooldownForWitchTalisman();
         seconds -= ticks / 20;
         int minutes = seconds / 60;
         int secondsLeft = seconds % 60;

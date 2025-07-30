@@ -34,7 +34,7 @@ public record GhastC2SPacket() implements CustomPayload {
 
     public void receive(ServerPlayerEntity player) {
 
-        if (!CONFIG.nonDestructiveFireballs() && GhastTalisman.useBoolean(player)) {
+        if (!CONFIG.ghastTalisman.nonDestructiveFireballs() && GhastTalisman.useBoolean(player)) {
             World world = player.getServerWorld();
             FireballEntity fireball = new FireballEntity(EntityType.FIREBALL, world);
 
@@ -53,7 +53,7 @@ public record GhastC2SPacket() implements CustomPayload {
             GhastTalisman.setBooleanFalse(player);
             GhastTalisman.SetTickCountTrue(player);
         }
-        else if (CONFIG.nonDestructiveFireballs() && GhastTalisman.useBoolean(player)) {
+        else if (CONFIG.ghastTalisman.nonDestructiveFireballs() && GhastTalisman.useBoolean(player)) {
             World world = player.getServerWorld();
             NonDestructiveFireballEntity fireball = new NonDestructiveFireballEntity(EntityType.FIREBALL, world);
 

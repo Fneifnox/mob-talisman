@@ -44,7 +44,7 @@ public class SquidTalisman extends AccessoryItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        int duration = CONFIG.durationForSquidTalisman();
+        int duration = CONFIG.squidTalisman.durationForSquidTalisman();
         tooltip.add(Text.translatable("tooltip.mob-talisman.squid_talisman.prefix")
                 .append(Text.literal("" + duration).formatted(Formatting.YELLOW))
                 .append(Text.translatable("tooltip.mob-talisman.squid_talisman.suffix")));

@@ -22,8 +22,8 @@ public abstract class PlayerDamageMixin {
         if (!(self instanceof PlayerEntity player)) return;
         if (cir.getReturnValue()) {
             if (ArmadilloTalisman.equippedPlayers.getOrDefault(player.getUuid(), false) == true && ArmadilloTalisman.resistanceGiven.getOrDefault(player.getUuid(), false) == false) {
-                int duration = CONFIG.durationForArmadilloTalisman();
-                player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 20 * duration, 9, false, false, false));
+                int duration = CONFIG.armadilloTalisman.durationForArmadilloTalisman();
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, (int) player.getWorld().getTickManager().getTickRate() * duration, 9, false, false, false));
                 ArmadilloTalisman.resistanceGiven.put(player.getUuid(), true);
                 ArmadilloTalisman.setBooleanTrue(player);
             }

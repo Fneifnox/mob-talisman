@@ -20,7 +20,7 @@ public class VillagerTradingMixin {
 
         for (TradeOffer finalTradeOffer : villager.getOffers()) {
             if (ZombieVillagerTalisman.playerHasZombieVillagerTalismanEquipped(player)) {
-                int price = (int)Math.floor(((double) CONFIG.discountForZombieVillagerTalisman() / 100)
+                int price = (int)Math.floor(((double) CONFIG.zombieVillagerTalisman.discountForZombieVillagerTalisman() / 100)
                         * (double)finalTradeOffer.getOriginalFirstBuyItem().getCount());
                 finalTradeOffer.increaseSpecialPrice(-price);
             }

@@ -9,6 +9,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
@@ -26,7 +27,7 @@ public class GlowSquidTalisman extends AccessoryItem {
     @Override
     public void tick(ItemStack stack, SlotReference reference) {
         if (!(reference.entity() instanceof PlayerEntity player)) return;
-        if (CONFIG.glowingEffectForEveryEntity()) {
+        if (CONFIG.glowSquidTalisman.glowingEffectForEveryEntity()) {
             player.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, -1, 0, true, false, true));
         }
     }
@@ -39,6 +40,9 @@ public class GlowSquidTalisman extends AccessoryItem {
             if (reference.entity().getWorld().isClient()) {
                 setBooleanTrue(player);
             }
+
+            player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(),
+                    SoundEvents.BLOCK_BEACON_ACTIVATE, player.getSoundCategory(), 1.0F, 1.0F);
         }
     }
 
@@ -47,12 +51,12 @@ public class GlowSquidTalisman extends AccessoryItem {
         if (!reference.entity().getWorld().isClient()) {
             if (!(reference.entity() instanceof PlayerEntity player)) return;
             setBooleanFalse(player);
-            if (CONFIG.glowingEffectForEveryEntity()) {
+            if (CONFIG.glowSquidTalisman.glowingEffectForEveryEntity()) {
                 player.removeStatusEffect(StatusEffects.GLOWING);
             }
             if (reference.entity().getWorld().isClient()) {
                 setBooleanFalse(player);
-                if (CONFIG.glowingEffectForEveryEntity()) {
+                if (CONFIG.glowSquidTalisman.glowingEffectForEveryEntity()) {
                     player.removeStatusEffect(StatusEffects.GLOWING);
                 }
             }
@@ -77,10 +81,10 @@ public class GlowSquidTalisman extends AccessoryItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        if (!CONFIG.glowingEffectForEveryEntity()) {
+        if (!CONFIG.glowSquidTalisman.glowingEffectForEveryEntity()) {
             tooltip.add(Text.translatable("tooltip.mob-talisman.glow_squid_talisman.items"));
         }
-        else if (CONFIG.glowingEffectForEveryEntity()) {
+        else if (CONFIG.glowSquidTalisman.glowingEffectForEveryEntity()) {
             tooltip.add(Text.translatable("tooltip.mob-talisman.glow_squid_talisman.entities"));
         }
 

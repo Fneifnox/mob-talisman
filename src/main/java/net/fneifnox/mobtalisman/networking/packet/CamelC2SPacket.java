@@ -32,20 +32,22 @@ public record CamelC2SPacket() implements CustomPayload {
     public void receive(ServerPlayerEntity player) {
 
         if (CamelTalisman.useBoolean(player)) {
-            float dashstrength = CONFIG.dashStrengthForCamelTalisman();
+            float dashStrength;
+            if (player.isFallFlying()) {
+                dashStrength = CONFIG.camelTalisman.dashStrengthForCamelTalisman() * (1 - (CONFIG.camelTalisman.reducedDashStrengthWithElytraForCamelTalisman() / 100));
+            }
+            else {
+                dashStrength = CONFIG.camelTalisman.dashStrengthForCamelTalisman();
+            }
 
-            // Richtung berechnen
             float yaw = player.getYaw();
             double yawRadiant = Math.toRadians(yaw);
             Vec3d forward = new Vec3d(-Math.sin(yawRadiant), 0, Math.cos(yawRadiant)).normalize();
 
-            // Vertikaler Impuls (wie Sprung)
             double verticalMovement = 1.4285f * 0.375f;
 
-            // Endgültiger Impuls-Vektor
-            Vec3d dashVelocity = forward.multiply(dashstrength).add(0.0, verticalMovement, 0.0);
+            Vec3d dashVelocity = forward.multiply(dashStrength).add(0.0, verticalMovement, 0.0);
 
-            // Auf den Spieler anwenden
             player.addVelocity(dashVelocity.x, dashVelocity.y, dashVelocity.z);
             player.velocityModified = true;
 

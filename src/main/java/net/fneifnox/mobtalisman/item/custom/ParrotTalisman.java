@@ -31,7 +31,7 @@ public class ParrotTalisman extends AccessoryItem {
         int ticks = tickCounter.getOrDefault(player.getUuid(), 0 + stack.getOrDefault(ModDataComponentTypes.TICK_COUNTER_PARROT, 0)) + 1;
         stack.set(ModDataComponentTypes.TICK_COUNTER_PARROT, ticks);
 
-        if (ticks >= (CONFIG.cooldownForParrotTalisman() * 20)) { // 1200 Ticks = 60 Seconds
+        if (ticks >= (CONFIG.parrotTalisman.cooldownForParrotTalisman() * 20)) { // 1200 Ticks = 60 Seconds
             ticks = 0;
             giveRandomDye(player);
         }
@@ -75,7 +75,7 @@ public class ParrotTalisman extends AccessoryItem {
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.translatable("tooltip.mob-talisman.parrot_talisman"));
         int ticks = stack.getOrDefault(ModDataComponentTypes.TICK_COUNTER_PARROT, 0);
-        int seconds = CONFIG.cooldownForParrotTalisman();
+        int seconds = CONFIG.parrotTalisman.cooldownForParrotTalisman();
         seconds -= ticks / 20;
         int minutes = seconds / 60;
         int secondsLeft = seconds % 60;

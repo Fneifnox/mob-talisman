@@ -28,10 +28,10 @@ public class PlayerAttackEffectMixin {
         if (self instanceof ServerPlayerEntity attackedPlayer) {
             if (source.getAttacker() instanceof ServerPlayerEntity attacker) {
                 if (SquidTalisman.playerHasSquidTalismanEquipped(attacker)) {
-                    int duration = CONFIG.durationForSquidTalisman();
+                    int duration = CONFIG.squidTalisman.durationForSquidTalisman();
                     attackedPlayer.addStatusEffect(new StatusEffectInstance(
                             StatusEffects.BLINDNESS,
-                            20 * duration,
+                            (int) attacker.getWorld().getTickManager().getTickRate() * duration,
                             0,
                             false, true, true
 
@@ -40,10 +40,10 @@ public class PlayerAttackEffectMixin {
 
 
                 if (PufferfishTalisman.playerHasPufferfishTalismanEquipped(attackedPlayer)) {
-                    int duration = CONFIG.durationForPufferfishTalisman();
+                    int duration = CONFIG.pufferfishTalisman.durationForPufferfishTalisman();
                     attacker.addStatusEffect(new StatusEffectInstance(
                             StatusEffects.POISON,
-                            20 * duration,
+                            (int) attackedPlayer.getWorld().getTickManager().getTickRate() * duration,
                             0,
                             false, true, true
 

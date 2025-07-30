@@ -30,7 +30,7 @@ public class GuardianTalisman extends AccessoryItem {
         int ticks = tickCounter.getOrDefault(player.getUuid(), 0 + stack.getOrDefault(ModDataComponentTypes.TICK_COUNTER_GUARDIAN, 0)) + 1;
         stack.set(ModDataComponentTypes.TICK_COUNTER_GUARDIAN, ticks);
 
-        if (ticks >= (CONFIG.cooldownForGuardianTalisman() * 20)) { // 1200 Ticks = 60 Seconds
+        if (ticks >= (CONFIG.guardianTalisman.cooldownForGuardianTalisman() * 20)) { // 1200 Ticks = 60 Seconds
             ticks = 0;
             givePrismarine(player);
         }
@@ -62,7 +62,7 @@ public class GuardianTalisman extends AccessoryItem {
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.translatable("tooltip.mob-talisman.guardian_talisman"));
         int ticks = stack.getOrDefault(ModDataComponentTypes.TICK_COUNTER_GUARDIAN, 0);
-        int seconds = CONFIG.cooldownForGuardianTalisman();
+        int seconds = CONFIG.guardianTalisman.cooldownForGuardianTalisman();
         seconds -= ticks / 20;
         int minutes = seconds / 60;
         int secondsLeft = seconds % 60;

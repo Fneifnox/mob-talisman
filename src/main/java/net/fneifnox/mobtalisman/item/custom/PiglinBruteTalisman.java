@@ -8,19 +8,20 @@ import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
-import java.util.*;
-
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 import static net.fneifnox.mobtalisman.MobTalisman.CONFIG;
 
-public class PufferfishTalisman extends AccessoryItem {
-
-    public PufferfishTalisman(Settings properties) {
-        super(properties);
-    }
+public class PiglinBruteTalisman extends AccessoryItem {
 
     private static final Map<UUID, Boolean> equippedPlayers = new HashMap<>();
+
+    public PiglinBruteTalisman(Settings properties) {
+        super(properties);
+    }
 
     @Override
     public void onEquip(ItemStack stack, SlotReference reference) {
@@ -38,19 +39,16 @@ public class PufferfishTalisman extends AccessoryItem {
         }
     }
 
-    public static boolean playerHasPufferfishTalismanEquipped(PlayerEntity player) {
+    public static boolean playerHasPiglinBruteTalismanEquipped(PlayerEntity player) {
         return equippedPlayers.getOrDefault(player.getUuid(), false);
     }
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        int duration = CONFIG.pufferfishTalisman.durationForPufferfishTalisman();
-        tooltip.add(Text.translatable("tooltip.mob-talisman.pufferfish_talisman.prefix")
-                .append(Text.literal("" + duration).formatted(Formatting.YELLOW))
-                .append(Text.translatable("tooltip.mob-talisman.pufferfish_talisman.suffix")));
+        tooltip.add(Text.translatable("tooltip.mob-talisman.piglin_brute_talisman"));
 
         if (CONFIG.showDropchancesAsTooltip()) {
-            float dropchance = CONFIG.dropchanceForPufferfishTalisman();
+            float dropchance = CONFIG.dropchanceForPiglinBruteTalisman();
             if (dropchance == (int) dropchance) {
                 tooltip.add(Text.translatable("tooltip.mob-talisman.dropchance")
                         .append(Text.literal("" + (int) dropchance + "%").formatted(Formatting.GRAY)));
@@ -63,3 +61,4 @@ public class PufferfishTalisman extends AccessoryItem {
         super.appendTooltip(stack, context, tooltip, type);
     }
 }
+

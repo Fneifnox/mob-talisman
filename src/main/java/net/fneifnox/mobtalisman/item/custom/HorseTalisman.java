@@ -30,7 +30,7 @@ public class HorseTalisman extends AccessoryItem {
             if (attribute != null && attribute.getModifier(STEP_HEIGHT_ID) == null) {
                 reference.entity().getAttributeInstance(EntityAttributes.GENERIC_STEP_HEIGHT)
                         .addPersistentModifier(new EntityAttributeModifier(
-                                STEP_HEIGHT_ID, 0 + CONFIG.increasedStepHeightForHorseTalisman(), EntityAttributeModifier.Operation.ADD_VALUE
+                                STEP_HEIGHT_ID, 0 + CONFIG.horseTalisman.increasedStepHeightForHorseTalisman(), EntityAttributeModifier.Operation.ADD_VALUE
                         ));
             }
         }
@@ -46,7 +46,7 @@ public class HorseTalisman extends AccessoryItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        float chance = CONFIG.increasedStepHeightForHorseTalisman();
+        float chance = CONFIG.horseTalisman.increasedStepHeightForHorseTalisman();
         if (chance == (int) chance) {
             tooltip.add(Text.translatable("tooltip.mob-talisman.horse_talisman.prefix")
                     .append(Text.literal("+" + (int) chance).formatted(Formatting.DARK_GREEN))

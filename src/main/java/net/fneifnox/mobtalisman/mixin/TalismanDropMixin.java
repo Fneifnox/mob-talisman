@@ -26,7 +26,7 @@ public abstract class TalismanDropMixin {
         if (!(killer instanceof ServerPlayerEntity player)) return;
         if (EnderDragonTalisman.playerHasEnderDragonTalismanEquipped(player) == true) {
             float originalChance = this.chance().nextFloat(lootContext);
-            float increasedChance = Math.min(originalChance * ((CONFIG.dropchanceForTalisman() + 100) / 100), 1.0f);
+            float increasedChance = Math.min(originalChance * ((CONFIG.enderDragonTalisman.dropchanceForTalisman() + 100) / 100), 1.0f);
             boolean result = lootContext.getRandom().nextFloat() < increasedChance;
             cir.setReturnValue(result);
             cir.cancel();

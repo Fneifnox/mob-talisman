@@ -4,13 +4,17 @@ import io.wispforest.accessories.api.AccessoryItem;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 import static net.fneifnox.mobtalisman.MobTalisman.CONFIG;
 
@@ -20,17 +24,26 @@ public class RavagerTalisman extends AccessoryItem {
         super(properties);
     }
 
+    private static final Map<UUID, Boolean> equippedPlayers = new HashMap<>();
+
     @Override
-    public void tick(ItemStack stack, SlotReference reference) {
-        if (!(reference.entity() instanceof ServerPlayerEntity player)) return;
-        player.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, -1, 0, true, false, true));
+    public void onEquip(ItemStack stack, SlotReference reference) {
+        if (!reference.entity().getWorld().isClient()) {
+            UUID playerId = reference.entity().getUuid();
+            equippedPlayers.put(playerId, true);
+        }
     }
 
     @Override
     public void onUnequip(ItemStack stack, SlotReference reference) {
-        if (!(reference.entity() instanceof ServerPlayerEntity player)) return;
+        if (!reference.entity().getWorld().isClient()) {
+            UUID playerId = reference.entity().getUuid();
+            equippedPlayers.put(playerId, false);
+        }
+    }
 
-        player.removeStatusEffect(StatusEffects.STRENGTH);
+    public static boolean playerHasRavagerTalismanEquipped(PlayerEntity player) {
+        return equippedPlayers.getOrDefault(player.getUuid(), false);
     }
 
     @Override

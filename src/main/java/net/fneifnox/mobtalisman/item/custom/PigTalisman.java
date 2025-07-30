@@ -29,7 +29,7 @@ public class PigTalisman extends AccessoryItem {
         int ticks = tickCounter.getOrDefault(player.getUuid(), 0 + stack.getOrDefault(ModDataComponentTypes.TICK_COUNTER_PIG, 0)) + 1;
         stack.set(ModDataComponentTypes.TICK_COUNTER_PIG, ticks);
 
-        if (ticks >= (CONFIG.cooldownForPigTalisman() * 20)) { // 1200 Ticks = 60 Seconds
+        if (ticks >= (CONFIG.pigTalisman.cooldownForPigTalisman() * 20)) { // 1200 Ticks = 60 Seconds
             ticks = 0;
             giveFood(player);
         }
@@ -38,7 +38,7 @@ public class PigTalisman extends AccessoryItem {
     }
 
     private void giveFood(ServerPlayerEntity player) {
-        if (player.getRandom().nextFloat() < (CONFIG.dropchanceForRottenFlesh() / 100)) {
+        if (player.getRandom().nextFloat() < (CONFIG.pigTalisman.dropchanceForRottenFlesh() / 100)) {
             player.giveItemStack(new ItemStack(Items.ROTTEN_FLESH));
         }
         else {
@@ -54,7 +54,7 @@ public class PigTalisman extends AccessoryItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        float chance = CONFIG.dropchanceForRottenFlesh();
+        float chance = CONFIG.pigTalisman.dropchanceForRottenFlesh();
         if (chance == (int) chance) {
             tooltip.add(Text.translatable("tooltip.mob-talisman.pig_talisman.prefix")
                     .append(Text.literal("" + (int) chance).formatted(Formatting.YELLOW))
@@ -66,7 +66,7 @@ public class PigTalisman extends AccessoryItem {
                     .append(Text.translatable("tooltip.mob-talisman.pig_talisman.suffix")));
         }
         int ticks = stack.getOrDefault(ModDataComponentTypes.TICK_COUNTER_PIG, 0);
-        int seconds = CONFIG.cooldownForPigTalisman();
+        int seconds = CONFIG.pigTalisman.cooldownForPigTalisman();
         seconds -= ticks / 20;
         int minutes = seconds / 60;
         int secondsLeft = seconds % 60;

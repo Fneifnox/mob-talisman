@@ -67,7 +67,9 @@
               "mob-talisman:creeper_talisman",
               "mob-talisman:zombie_villager_talisman",
               "mob-talisman:endermite_talisman",
-              "mob-talisman:donkey_talisman"
+              "mob-talisman:donkey_talisman",
+              "mob-talisman:piglin_brute_talisman",
+              "mob-talisman:wither_skeleton_talisman"
             ],
             "count": 1
           }

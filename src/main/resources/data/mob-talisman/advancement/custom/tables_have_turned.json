@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "mob-talisman:creeper_talisman",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancements.mob-talisman.tables_have_turned.title"
+    },
+    "description": {
+      "translate": "advancements.mob-talisman.tables_have_turned.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "mob-talisman:custom/root",
+  "criteria": {
+    "creeper_fear": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
